@@ -10,8 +10,6 @@ public class CardActivated : MonoBehaviour {
 
     public void ActiveCard()
     {
-        //TODO :  Deberia pasarle tambien mi boton para que me reactive y me crea
-        Game.CheckAction(CardDisplay.Card.Action,this);
         //Desactivar button
         UnityEngine.UI.Button Button = GetComponent<UnityEngine.UI.Button>();
         if(Button != null)
@@ -19,6 +17,8 @@ public class CardActivated : MonoBehaviour {
             Button.interactable = false;
         }
 
+        //TODO :  Deberia pasarle tambien mi boton para que me reactive y me crea
+        Game.CheckAction(CardDisplay.Card.Action, this);
     }
 
     public void ReRollCard()

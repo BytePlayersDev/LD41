@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour {
             case CardActionEnum.Action.MoveRight:
                 {
                     pc.MoveRight();
-
+                    cardActivated.ReRollCard();
                 }
                 break;
             case CardActionEnum.Action.MoveLeft:
