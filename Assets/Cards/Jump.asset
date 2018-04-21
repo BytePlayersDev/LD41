@@ -9,9 +9,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c30cb7e59f6a55f40bfe551edf79bf26, type: 3}
-  m_Name: MoveUp
+  m_Name: Jump
   m_EditorClassIdentifier: 
   artwork: {fileID: 0}
-  name: 
+  name: Jump
   Used: 0
-  Action: 0
+  Action: 2

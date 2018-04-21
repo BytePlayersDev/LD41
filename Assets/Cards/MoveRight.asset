@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: MoveRight
   m_EditorClassIdentifier: 
   artwork: {fileID: 0}
-  name: 
+  name: MoveRight
   Used: 0
   Action: 0

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: Defend
   m_EditorClassIdentifier: 
   artwork: {fileID: 0}
-  name: 
+  name: Defend
   Used: 0
-  Action: 0
+  Action: 4
