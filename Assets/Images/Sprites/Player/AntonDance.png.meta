@@ -1,11 +1,13 @@
 fileFormatVersion: 2
-guid: d27c37af5b12de44199a36916b4d5d61
-timeCreated: 1524336645
+guid: 95bee1c5feef6e645bbb829b1160284e
+timeCreated: 1524336613
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Left_Arrow_0
-    21300002: Left_Arrow_1
+    21300000: AntonDance_0
+    21300002: AntonDance_1
+    21300004: AntonDance_2
+    21300006: AntonDance_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -83,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Left_Arrow_0
+      name: AntonDance_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 36
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -97,13 +99,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Left_Arrow_1
+      name: AntonDance_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 16
         y: 0
-        width: 24
-        height: 36
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AntonDance_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: AntonDance_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
