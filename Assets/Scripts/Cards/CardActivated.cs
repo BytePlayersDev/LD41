@@ -25,7 +25,7 @@ public class CardActivated : MonoBehaviour {
     {
         if (DeckList != null)
         {
-            int random = Random.Range(0, (DeckList.Decks.Count - 1));
+            int random = Random.Range(0, (DeckList.Decks.Count));
             CardDisplay.UpdateCard(DeckList.Decks[random]);
         }
         //Activar button
