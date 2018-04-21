@@ -4,41 +4,25 @@ using UnityEngine;
 
 public class CardActivated : MonoBehaviour {
 
-    public GameObject Player;
-    public CardDisplay card;
+    public GameManager Game;
+    public CardDisplay CardDisplay;
+    public DeckList DeckList;
 
     public void ActiveCard()
     {
-        switch (card.Card.Action)
+        //TODO :  Deberia pasarle tambien mi boton para que me reactive y me crea
+        Game.CardAction(CardDisplay.Card.Action);
+        // Desactivo la carta???  
+    }
+
+    public void ReRollCard()
+    {
+        if (DeckList != null)
         {
-            case CardActionEnum.Action.MoveRight:
-               {
-                    //llamar a al controllador de acciones del jugador
-               }
-           break;
-            case CardActionEnum.Action.MoveLeft:
-                {
-                    //llamar a al controllador de acciones del jugador
-                }
-                break;
-            case CardActionEnum.Action.MoveUp:
-                {
-                    //llamar a al controllador de acciones del jugador
-                }
-                break;
-            case CardActionEnum.Action.Attack:
-                {
-                    //llamar a al controllador de acciones del jugador
-                }
-                break;
-            case CardActionEnum.Action.Defend:
-                {
-                    //llamar a al controllador de acciones del jugador
-                }
-                break;
-            default:
-                break;
+            int random = Random.Range(0, (DeckList.Decks.Count - 1));
+            CardDisplay.UpdateCard(DeckList.Decks[random]);
         }
+        //activar carta
     }
 
 }
