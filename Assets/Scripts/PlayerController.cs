@@ -18,12 +18,6 @@ public class PlayerController : MonoBehaviour {
 
         canMove = false;
 	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
 
     void FixedUpdate()
     {
@@ -35,6 +29,7 @@ public class PlayerController : MonoBehaviour {
 
     public bool MoveLeft()
     {
+        StartCoroutine(MoveVertically(-1));
         return true;
     }
 
