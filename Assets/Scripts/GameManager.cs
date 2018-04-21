@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void CardAction(CardActionEnum.Action action, CardActivated cardActivated)
+    public void CheckAction(CardActionEnum.Action action, CardActivated cardActivated)
     {
         switch (action)
         {
@@ -36,7 +36,6 @@ public class GameManager : MonoBehaviour {
             case CardActionEnum.Action.MoveLeft:
                 {
                     pc.MoveLeft();
-
                 }
                 break;
             case CardActionEnum.Action.Jump:

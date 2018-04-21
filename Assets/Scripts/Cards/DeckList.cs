@@ -6,6 +6,4 @@ public class DeckList : MonoBehaviour {
 
     public List<Card> Decks;
 
-
-
 }
