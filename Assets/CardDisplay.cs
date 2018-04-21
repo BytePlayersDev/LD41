@@ -15,12 +15,24 @@ public class CardDisplay : MonoBehaviour {
     //Acción
     public CardActionEnum.Action Action;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
+        UpdateCardAtributes();
+
+    }
+
+    private void UpdateCardAtributes()
+    {
         artwork = Card.artwork;
         name = Card.name;
         Used = Card.Used;
         Action = Card.Action;
-
     }
-	
+
+    public void UpdateCard(Card NewCard)
+    {
+        Card = NewCard;
+        UpdateCardAtributes();
+    }
+  
 }
