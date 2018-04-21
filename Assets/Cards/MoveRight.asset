@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cb7e59f6a55f40bfe551edf79bf26, type: 3}
   m_Name: MoveRight
   m_EditorClassIdentifier: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: b9b326cba3b98a5418a658f3fd0568f7, type: 3}
   name: MoveRight
   Used: 0
   Action: 0

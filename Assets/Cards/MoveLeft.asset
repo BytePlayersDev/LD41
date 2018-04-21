@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cb7e59f6a55f40bfe551edf79bf26, type: 3}
   m_Name: MoveLeft
   m_EditorClassIdentifier: 
-  artwork: {fileID: 0}
+  artwork: {fileID: 21300000, guid: d27c37af5b12de44199a36916b4d5d61, type: 3}
   name: MoveLeft
   Used: 0
   Action: 1
