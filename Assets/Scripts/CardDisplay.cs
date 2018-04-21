@@ -23,7 +23,14 @@ public class CardDisplay : MonoBehaviour {
 
     private void UpdateCardAtributes()
     {
-        artwork = Card.artwork;
+        //busca la imagen del boton y actualizarla
+
+        UnityEngine.UI.Image ImageButton = GetComponent<UnityEngine.UI.Image>();
+        if(ImageButton != null)
+        {
+            ImageButton.sprite = Card.artwork;
+        }
+        
         name = Card.name;
         Used = Card.Used;
         Action = Card.Action;
