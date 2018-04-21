@@ -34,5 +34,6 @@ public class CardDisplay : MonoBehaviour {
         Card = NewCard;
         UpdateCardAtributes();
     }
+
   
 }
