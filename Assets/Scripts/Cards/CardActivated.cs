@@ -10,12 +10,16 @@ public class CardActivated : MonoBehaviour {
 
     public void ActiveCard()
     {
-        //Desactivar button
-        UnityEngine.UI.Button Button = GetComponent<UnityEngine.UI.Button>();
-        if(Button != null)
-        {
-            Button.interactable = false;
+        //Desactivar buttons
+        UnityEngine.UI.Button []Button = gameObject.transform.parent.GetComponentsInChildren<UnityEngine.UI.Button>();
+
+        for (int i = 0; i < Button.Length; i++) {
+
+          
+                Button[i].interactable = false;
+            
         }
+
 
         //TODO :  Deberia pasarle tambien mi boton para que me reactive y me crea
         Game.CheckAction(CardDisplay.Card.Action, this);
@@ -30,11 +34,17 @@ public class CardActivated : MonoBehaviour {
         }
         //Activar button
 
-        UnityEngine.UI.Button Button = GetComponent<UnityEngine.UI.Button>();
-        if (Button != null)
+        UnityEngine.UI.Button[] Button = gameObject.transform.parent.GetComponentsInChildren<UnityEngine.UI.Button>();
+
+
+        for (int i = 0; i < Button.Length; i++)
         {
-            Button.interactable = true;
+
+
+            Button[i].interactable = true ;
+
         }
+
     }
 
 }
