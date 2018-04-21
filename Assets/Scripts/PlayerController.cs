@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public float speed;
+    public float moveTime;
+
+    private Rigidbody2D rb;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+    {
+        rb = this.GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		
 	}
 
     public bool MoveLeft()
     {
+        rb.velocity = new Vector2(speed * moveTime, rb.velocity.y);
         return true;
     }
 
     public bool MoveRight()
     {
+        rb.velocity = new Vector2(speed * moveTime * -1, rb.velocity.y);
         return true;
     }
 
