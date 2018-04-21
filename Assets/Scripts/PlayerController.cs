@@ -4,38 +4,55 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    #region Variables
     public float speed;
     public float moveTime;
 
-    private Rigidbody2D rb;
+    private GameObject[] childs;
 
+    private Rigidbody2D rbPlayer;
+    private int direction;
     private bool canMove;
 
-	// Use this for initialization
-	void Start ()
+    #endregion
+
+    #region Functions
+
+    // Use this for initialization
+    void Start ()
     {
-        rb = this.GetComponent<Rigidbody2D>();
+        for (int i = 0; i < gameObject.transform.childCount; ++i)
+        {
+            childs[i] = gameObject.transform.GetChild(i).gameObject;
+        }
+
+        direction = 1;
+        rbPlayer = childs[0].GetComponent<Rigidbody2D>();
 
         canMove = false;
-	}
+    }
 
     void FixedUpdate()
     {
         if (!canMove)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
         }
     }
-
+    
     public bool MoveLeft()
     {
-        StartCoroutine(MoveVertically(-1));
+        if (direction == 1) FlipSprite();
+
+        rbPlayer.velocity = new Vector2(speed * moveTime * -1, rbPlayer.velocity.y);
         return true;
     }
 
     public bool MoveRight()
     {
-        StartCoroutine(MoveVertically(1));
+        if (direction == -1) FlipSprite();
+
+        rbPlayer.velocity = new Vector2(speed * moveTime, rbPlayer.velocity.y);
         return true;
     }
 
@@ -54,23 +71,20 @@ public class PlayerController : MonoBehaviour {
         return true;
     }
 
-    #region Coroutines
-    // This courutine runs always, increasing the value of "Critic Percentage"
-    IEnumerator MoveVertically(int dir)
+    protected void FlipSprite()
     {
-        if (dir == 1)
-        {
-            canMove = true;
-            rb.velocity = new Vector2(speed * moveTime, rb.velocity.y);
-        }
-        else
-        {
-            canMove = true;
-            rb.velocity = new Vector2(speed * moveTime * -1, rb.velocity.y);
-        }
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        direction *= -1;
+    }
 
+    #endregion
+
+    #region Coroutines
+
+    // This courutine runs always, increasing the value of "Critic Percentage"
+    IEnumerator GetValid()
+    {
         yield return new WaitForSeconds(moveTime);
-        canMove = false;
     }
 
     #endregion

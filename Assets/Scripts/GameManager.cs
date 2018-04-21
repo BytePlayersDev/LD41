@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    #region Variables
+
     [SerializeField]
     private GameObject player;
     [SerializeField]
@@ -11,18 +13,16 @@ public class GameManager : MonoBehaviour {
 
     private PlayerController pc;
 
+    #endregion
+
+    #region Functions
+
     // Use this for initialization
     void Start ()
     {
         pc = player.GetComponent<PlayerController>();
 	}
 	
-	// Update is called once per frame
-	void Update ()
-    {
-		
-	}
-
     public void CheckAction(CardActionEnum.Action action, CardActivated cardActivated)
     {
         switch (action)
@@ -67,6 +67,10 @@ public class GameManager : MonoBehaviour {
         StartCoroutine("ReRollCard", cardActivated);        
     }
 
+    #endregion
+
+    #region Coroutines
+
     IEnumerator ReRollCard(CardActivated cardActivated)
     {   
       
@@ -75,4 +79,7 @@ public class GameManager : MonoBehaviour {
         cardActivated.ReRollCard();
 
     }
+
+    #endregion
+
 }
