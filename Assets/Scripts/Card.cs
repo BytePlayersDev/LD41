@@ -11,8 +11,8 @@ public class Card :ScriptableObject {
     //Nombre de la carta
     public new string name;
     //Flag de uso
-    public bool Used = false;
+    public bool Used;
     //Acción
-    public CardActionEnum.Action Action = CardActionEnum.Action.MoveRight;
+    public CardActionEnum.Action Action;
 
 }

@@ -5,9 +5,22 @@ using UnityEngine;
 public class CardDisplay : MonoBehaviour {
 
     public Card Card;
-	// Use this for initialization
-	void Start () {
-		
-	}
+
+    //Sprite de la carta
+    public Sprite artwork;
+    //Nombre de la carta
+    public new string name;
+    //Flag de uso
+    public bool Used;
+    //Acción
+    public CardActionEnum.Action Action;
+    // Use this for initialization
+    void Start () {
+        artwork = Card.artwork;
+        name = Card.name;
+        Used = Card.Used;
+        Action = Card.Action;
+
+    }
 	
 }
