@@ -18,6 +18,7 @@ public class EnemyBase : MonoBehaviour {
     //Nodes for patrol behavior
     //This is set for only 2 waypoints
     public Transform[] waypoints;
+    [SerializeField]
     protected int waypointID;
     protected bool samePosition;
 

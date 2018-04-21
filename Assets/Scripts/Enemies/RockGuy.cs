@@ -14,7 +14,7 @@ public class RockGuy : EnemyBase {
         samePosition = false;
         isAlive = true;
         currentState = EnemyBase.State.Patrol;
-
+        
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
 	}
 	
@@ -25,7 +25,6 @@ public class RockGuy : EnemyBase {
                 Patrol();
                 break;
         }
-
 	}
 
     #endregion
