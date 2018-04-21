@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RockGuy : EnemyBase {
     #region Variables
+    private Vector2 translation;
     #endregion
 
     #region Unity Methods
@@ -13,16 +14,26 @@ public class RockGuy : EnemyBase {
         direction = new Vector2(transform.localScale.x, 0);
         samePosition = false;
         isAlive = true;
-        currentState = EnemyBase.State.Patrol;
-        
+        currentState = State.Patrol;
+
+        if (secondsToWait == 0) secondsToWait = 2;
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition)
+        {
+            ChangeWaypoint();
+            currentState = State.Static;
+        }
+
         switch (currentState) {
-            case EnemyBase.State.Patrol:
+            case State.Patrol:
                 Patrol();
+                break;
+            case State.Static:
+                StartCoroutine(Static());
                 break;
         }
 	}
@@ -34,14 +45,18 @@ public class RockGuy : EnemyBase {
     /// Simple Patrol Function
     /// </summary>
     private void Patrol() {
-        if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition) {
-            ChangeWaypoint();
-        }
-
         if (!samePosition) {
-            Vector2 translation = Vector2.MoveTowards(this.transform.position, waypoints[waypointID].transform.position, moveSpeed / decreaseSpeedFactor);
+            translation = Vector2.MoveTowards(this.transform.position, waypoints[waypointID].transform.position, moveSpeed / decreaseSpeedFactor);
             transform.position = new Vector2(translation.x, transform.position.y);
         }
     }
+
+    protected IEnumerator Static()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        currentState = State.Patrol;
+    }
+
     #endregion
+
 }

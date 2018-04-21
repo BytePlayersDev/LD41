@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class EnemyBase : MonoBehaviour {
 
+    
     protected enum State {
+        Static,
         Patrol,
         Chasing,
         Shooting
     }
 
-    protected State currentState = State.Patrol;
+    [SerializeField]
+    protected State currentState;
 
     #region Variables
     //Rigidbody2D rb;
@@ -21,6 +24,7 @@ public class EnemyBase : MonoBehaviour {
     [SerializeField]
     protected int waypointID;
     protected bool samePosition;
+    public float secondsToWait = 0.5f;
 
     [HideInInspector]
     public Transform activeNode;
@@ -59,12 +63,17 @@ public class EnemyBase : MonoBehaviour {
             waypointID = 1;
             facingRight = false;
             FlipSprite();
-        }
-        else {
+        } else {
             waypointID = 0;
             facingRight = true;
             FlipSprite();
         }
+    }
+
+    protected IEnumerator Static()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        currentState = State.Patrol;
     }
 
     /// <summary>
@@ -91,6 +100,8 @@ public class EnemyBase : MonoBehaviour {
             samePosition = false;
         }
     }
+
+
     #endregion
 
 }

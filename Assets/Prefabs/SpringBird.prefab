@@ -410,6 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef42ec54392e5804d9abd5bfd2c051dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 1
   waypoints:
   - {fileID: 4054436737873458}
   - {fileID: 4033101503528022}
@@ -419,6 +420,7 @@ MonoBehaviour:
   - {fileID: 4329628983545264}
   - {fileID: 4523108306581446}
   waypointID: 0
+  secondsToWait: 0.3
   activeNode: {fileID: 0}
   moveSpeed: 3
   player: {fileID: 0}

@@ -722,6 +722,7 @@ GameObject:
   - component: {fileID: 603441385}
   - component: {fileID: 603441389}
   - component: {fileID: 603441390}
+  - component: {fileID: 603441391}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -829,6 +830,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 70.59509, y: 3.1907425}
   m_EdgeRadius: 0
+--- !u!50 &603441391
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 603441384}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &866738483
 Prefab:
   m_ObjectHideFlags: 0
@@ -869,6 +890,10 @@ Prefab:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1587454055396830, guid: b8a356cc4e84c9b4c937336fc322fd4d, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1445398605250384, guid: b8a356cc4e84c9b4c937336fc322fd4d, type: 2}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}

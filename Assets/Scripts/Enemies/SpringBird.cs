@@ -24,10 +24,20 @@ public class SpringBird : EnemyBase {
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition)
+        {
+            ChangeWaypoint();
+            if(waypointID %2 != 0)
+                currentState = State.Static;
+
+        }
         switch (currentState)
         {
-            case EnemyBase.State.Patrol:
+            case State.Patrol:
                 Patrol();
+                break;
+            case State.Static:
+                StartCoroutine(Static());
                 break;
         }
 
@@ -41,9 +51,7 @@ public class SpringBird : EnemyBase {
     /// </summary>
     private void Patrol()
     {
-        if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition) {
-            ChangeWaypoint();
-        }
+
         if (!samePosition) {
             Vector2 translation = Vector2.MoveTowards(this.transform.position, waypoints[waypointID].transform.position, moveSpeed / decreaseSpeedFactor);
             transform.position = new Vector2(translation.x, translation.y);
@@ -64,6 +72,12 @@ public class SpringBird : EnemyBase {
         }
         
         waypointID = (waypointID + changeOrder) % (waypoints.Length);
+    }
+
+    protected IEnumerator Static()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        currentState = State.Patrol;
     }
     #endregion
 }

@@ -265,10 +265,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e2aac393adb5c44a42fd030164d45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   waypoints:
   - {fileID: 4381323561265562}
   - {fileID: 4926870505906590}
   waypointID: 0
+  secondsToWait: 0.5
   activeNode: {fileID: 0}
   moveSpeed: 3
   player: {fileID: 0}
