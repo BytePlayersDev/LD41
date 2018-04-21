@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Card {
+public class Card :ScriptableObject {
 
     //Sprite de la carta
-    public Texture2D CardIcon = null;
+    public Sprite artwork;
     //Nombre de la carta
-    public string Name = "New card";
+    public new string name;
     //Flag de uso
     public bool Used = false;
     //Acción
