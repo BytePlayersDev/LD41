@@ -5,14 +5,17 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     #region Variables
+    
+    public GameObject player;
+    public GameObject[] waypoints;
+
     public float speed;
     public float moveTime;
-
-    private GameObject[] childs;
-
+    
     private Rigidbody2D rbPlayer;
+    private Vector3 prevPosition;
+    private bool isMoving;
     private int direction;
-    private bool canMove;
 
     #endregion
 
@@ -21,30 +24,34 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        for (int i = 0; i < gameObject.transform.childCount; ++i)
-        {
-            childs[i] = gameObject.transform.GetChild(i).gameObject;
-        }
-
         direction = 1;
-        rbPlayer = childs[0].GetComponent<Rigidbody2D>();
-
-        canMove = false;
+        rbPlayer = player.GetComponent<Rigidbody2D>();
+        isMoving = false;
     }
 
     void FixedUpdate()
     {
-        if (!canMove)
+        if (isMoving)
         {
-            rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
+            for (int i = 0; i < waypoints.Length; ++i)
+            {
+                if (Mathf.Abs(Vector2.Distance(waypoints[i].transform.position, player.transform.position)) < .5f)
+                {
+                    rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
+                    MoveWaypoints();
+                }
+            }
         }
     }
-    
+
     public bool MoveLeft()
     {
         if (direction == 1) FlipSprite();
 
+        prevPosition = player.transform.position;
+
         rbPlayer.velocity = new Vector2(speed * moveTime * -1, rbPlayer.velocity.y);
+        isMoving = true;
         return true;
     }
 
@@ -52,7 +59,10 @@ public class PlayerController : MonoBehaviour {
     {
         if (direction == -1) FlipSprite();
 
+        prevPosition = player.transform.position;
+
         rbPlayer.velocity = new Vector2(speed * moveTime, rbPlayer.velocity.y);
+        isMoving = true;
         return true;
     }
 
@@ -73,10 +83,21 @@ public class PlayerController : MonoBehaviour {
 
     protected void FlipSprite()
     {
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        player.transform.localScale = new Vector2(player.transform.localScale.x * -1, player.transform.localScale.y);
         direction *= -1;
     }
 
+    protected void MoveWaypoints()
+    {
+        Vector3 diference = player.transform.position - prevPosition;
+
+        waypoints[0].transform.position += diference;
+        waypoints[1].transform.position += diference;
+        waypoints[2].transform.position += diference;
+
+        isMoving = false;
+    }
+    
     #endregion
 
     #region Coroutines
