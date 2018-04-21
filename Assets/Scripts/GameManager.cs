@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    public PlayerController playerController;
-    public GameObject scoreController;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject scoreController;
 
-	// Use this for initialization
-	void Start ()
+    private PlayerController pc;
+
+    // Use this for initialization
+    void Start ()
     {
-		
+        pc = player.GetComponent<PlayerController>();
 	}
 	
 	// Update is called once per frame
@@ -19,8 +23,42 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public void CardAction(CardActionEnum.Action action)
+    public void CardAction(CardActionEnum.Action action, CardActivated cardActivated)
     {
+        switch (action)
+        {
+            case CardActionEnum.Action.MoveRight:
+                {
+                    pc.MoveRight();
 
+                }
+                break;
+            case CardActionEnum.Action.MoveLeft:
+                {
+                    pc.MoveLeft();
+
+                }
+                break;
+            case CardActionEnum.Action.Jump:
+                {
+                    pc.Jump();
+
+                }
+                break;
+            case CardActionEnum.Action.Attack:
+                {
+                    pc.Attack();
+
+                }
+                break;
+            case CardActionEnum.Action.Defend:
+                {
+                    pc.Defend();
+
+                }
+                break;
+            default:
+                break;
+        }
     }
 }

@@ -14,27 +14,27 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
-    bool MoveLeft()
+    public bool MoveLeft()
     {
         return true;
     }
 
-    bool MoveRight()
+    public bool MoveRight()
     {
         return true;
     }
 
-    bool Jump()
+    public bool Jump()
     {
         return true;
     }
 
-    bool Attack()
+    public bool Attack()
     {
         return true;
     }
 
-    bool Defense()
+    public bool Defend()
     {
         return true;
     }

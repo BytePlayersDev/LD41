@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class CardActionEnum : MonoBehaviour {
 
-   public enum Action { MoveRight, MoveLeft, MoveUp, Attack , Defend };
+   public enum Action { MoveRight, MoveLeft, Jump, Attack , Defend };
 
 }
