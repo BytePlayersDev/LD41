@@ -30,34 +30,48 @@ public class GameManager : MonoBehaviour {
             case CardActionEnum.Action.MoveRight:
                 {
                     pc.MoveRight();
-                    cardActivated.ReRollCard();
+                    
                 }
                 break;
             case CardActionEnum.Action.MoveLeft:
                 {
                     pc.MoveLeft();
+                    
                 }
                 break;
             case CardActionEnum.Action.Jump:
                 {
                     pc.Jump();
+                    
 
                 }
                 break;
             case CardActionEnum.Action.Attack:
                 {
                     pc.Attack();
+                   
 
                 }
                 break;
             case CardActionEnum.Action.Defend:
                 {
                     pc.Defend();
+                   
 
                 }
                 break;
             default:
                 break;
         }
+        StartCoroutine("ReRollCard", cardActivated);
+        
+    }
+    IEnumerator ReRollCard(CardActivated cardActivated)
+    {   
+      
+         yield return new WaitForSeconds(0.5f);
+
+        cardActivated.ReRollCard();
+
     }
 }
