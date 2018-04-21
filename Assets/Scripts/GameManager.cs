@@ -63,9 +63,10 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
-        StartCoroutine("ReRollCard", cardActivated);
-        
+
+        StartCoroutine("ReRollCard", cardActivated);        
     }
+
     IEnumerator ReRollCard(CardActivated cardActivated)
     {   
       

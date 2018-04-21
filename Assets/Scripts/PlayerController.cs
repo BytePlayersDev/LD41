@@ -9,10 +9,14 @@ public class PlayerController : MonoBehaviour {
 
     private Rigidbody2D rb;
 
+    private bool canMove;
+
 	// Use this for initialization
 	void Start ()
     {
         rb = this.GetComponent<Rigidbody2D>();
+
+        canMove = false;
 	}
 	
 	// Update is called once per frame
@@ -21,15 +25,22 @@ public class PlayerController : MonoBehaviour {
 		
 	}
 
+    void FixedUpdate()
+    {
+        if (!canMove)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+    }
+
     public bool MoveLeft()
     {
-        rb.velocity = new Vector2(speed * moveTime, rb.velocity.y);
         return true;
     }
 
     public bool MoveRight()
     {
-        rb.velocity = new Vector2(speed * moveTime * -1, rb.velocity.y);
+        StartCoroutine(MoveVertically(1));
         return true;
     }
 
@@ -47,4 +58,25 @@ public class PlayerController : MonoBehaviour {
     {
         return true;
     }
+
+    #region Coroutines
+    // This courutine runs always, increasing the value of "Critic Percentage"
+    IEnumerator MoveVertically(int dir)
+    {
+        if (dir == 1)
+        {
+            canMove = true;
+            rb.velocity = new Vector2(speed * moveTime, rb.velocity.y);
+        }
+        else
+        {
+            canMove = true;
+            rb.velocity = new Vector2(speed * moveTime * -1, rb.velocity.y);
+        }
+
+        yield return new WaitForSeconds(moveTime);
+        canMove = false;
+    }
+
+    #endregion
 }
