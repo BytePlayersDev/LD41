@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
 
         rbPlayer.velocity = new Vector2(speed * moveTime * -1, rbPlayer.velocity.y);
         isMoving = true;
+
         return true;
     }
 
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour {
 
         rbPlayer.velocity = new Vector2(speed * moveTime, rbPlayer.velocity.y);
         isMoving = true;
+
         return true;
     }
 
