@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    void DoAction(CardActionEnum.Action action)
+    public void CardAction(CardActionEnum.Action action)
     {
 
     }
