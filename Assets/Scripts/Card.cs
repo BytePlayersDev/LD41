@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+
+[CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card :ScriptableObject {
 
     //Sprite de la carta
