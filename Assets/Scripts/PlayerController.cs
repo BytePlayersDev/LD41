@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerController : MonoBehaviour {
 
@@ -10,10 +11,12 @@ public class PlayerController : MonoBehaviour {
     public GameObject[] waypoints;
 
     public float speed;
+    public float jumpForce;
     public float moveTime;
     
     private Rigidbody2D rbPlayer;
     private Vector3 prevPosition;
+    private Vector3 nextPosition;
     private bool isMoving;
     private int direction;
 
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour {
         if (direction == 1) FlipSprite();
 
         prevPosition = player.transform.position;
+        nextPosition = new Vector3(prevPosition.x - 5, prevPosition.y, prevPosition.z);
 
         rbPlayer.velocity = new Vector2(speed * moveTime * -1, rbPlayer.velocity.y);
         isMoving = true;
@@ -61,6 +65,7 @@ public class PlayerController : MonoBehaviour {
         if (direction == -1) FlipSprite();
 
         prevPosition = player.transform.position;
+        nextPosition = new Vector3(prevPosition.x + 5, prevPosition.y, prevPosition.z);
 
         rbPlayer.velocity = new Vector2(speed * moveTime, rbPlayer.velocity.y);
         isMoving = true;
@@ -70,6 +75,14 @@ public class PlayerController : MonoBehaviour {
 
     public bool Jump()
     {
+        prevPosition = player.transform.position;
+        nextPosition = new Vector3(prevPosition.x, prevPosition.y + 10, prevPosition.z);
+
+        rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
+        rbPlayer.AddForce(new Vector2(0f, jumpForce));
+
+        isMoving = true;
+
         return true;
     }
 
@@ -91,7 +104,10 @@ public class PlayerController : MonoBehaviour {
 
     protected void MoveWaypoints()
     {
-        Vector3 diference = player.transform.position - prevPosition;
+        Debug.Log(nextPosition);
+        Debug.Log(prevPosition);
+
+        Vector3 diference = nextPosition - prevPosition;
 
         waypoints[0].transform.position += diference;
         waypoints[1].transform.position += diference;
@@ -99,7 +115,7 @@ public class PlayerController : MonoBehaviour {
 
         isMoving = false;
     }
-    
+
     #endregion
 
     #region Coroutines
