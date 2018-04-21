@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Card : MonoBehaviour {
+[System.Serializable]
+public class Card {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    //Sprite de la carta
+    public Texture2D CardIcon = null;
+    //Nombre de la carta
+    public string Name = "New card";
+    //Flag de uso
+    public bool Used = false;
+    //Acción
+    public CardActionEnum.Action Action = CardActionEnum.Action.MoveRight;
+
 }
