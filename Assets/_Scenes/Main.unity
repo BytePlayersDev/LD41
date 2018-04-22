@@ -654,7 +654,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1921548651373844, guid: c1b4824af13dcf048ba308b2cdca7ff2, type: 2}
       propertyPath: m_Layer
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114848043331423362, guid: c1b4824af13dcf048ba308b2cdca7ff2,
         type: 2}
@@ -2226,7 +2226,7 @@ GameObject:
   - component: {fileID: 1110403712}
   - component: {fileID: 1110403714}
   - component: {fileID: 1110403713}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
