@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour {
     public void Update()
     {
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
-        Debug.DrawRay(rayOriginPosition, new Vector2(this.transform.localScale.x * raycastHitRange, 0) , Color.red);
-        Debug.DrawRay(this.transform.position, new Vector2(-this.transform.localScale.x, 0) * raycastViewRange, Color.blue);
+        Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
+        Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.left.x, 0) * raycastViewRange, Color.blue);
     }
 
     public bool GetIsMoving()
@@ -107,15 +107,22 @@ public class PlayerController : MonoBehaviour {
     {
         //Check closest enemy to player
         //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
+
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y -.5f, this.transform.position.z);
-        RaycastHit2D hit = Physics2D.Raycast(rayOriginPosition, new Vector2(-this.transform.localScale.x, -.5f));
-        RaycastHit2D hitEnemy = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
+        RaycastHit2D hit = Physics2D.Raycast(rayOriginPosition, Vector2.left);
+        RaycastHit2D hitEnemy = Physics2D.Raycast(rayOriginPosition, Vector2.right);
 
         if (hit.collider.tag == "Enemy") {
             //Flip sprite towards enmey
+            Debug.Log("FlipSprite");
+
             FlipSprite();
         }
         //Perform Hit with a raycast
+        if (hitEnemy.collider.tag == "Enemy")
+        {
+            Debug.Log("Enemy Hitted");
+        }
         if (hitEnemy.collider.tag == "Enemy" && Mathf.Abs(Vector3.Distance(hitEnemy.collider.gameObject.transform.position, this.transform.position)) <= raycastHitRange) {
             //if the raycast hits an enemy destroy the enemy gameobject (maybe send a signal to play death animation?)
             hitEnemy.collider.gameObject.GetComponent<EnemyBase>().Die(); //Puede que no funciones y haya que mirar el tipo de Enemigo al que accedemos.

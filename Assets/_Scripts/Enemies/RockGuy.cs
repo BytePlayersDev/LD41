@@ -46,15 +46,6 @@ public class RockGuy : EnemyBase {
                 break;
         }
 	}
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("asdasdasd");
-        if (collision.gameObject.tag == "Player" && player.GetComponent<PlayerController>().getIsInvulnerable() == false)
-        {
-            gm.Death();
-        }
-    }
     #endregion
 
     #region Custom Functions

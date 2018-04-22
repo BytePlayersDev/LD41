@@ -86,7 +86,6 @@ public class EnemyBase : MonoBehaviour {
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("asdasdasdasdasds");
         if (collision.gameObject.tag == "Player" && player.GetComponent<PlayerController>().getIsInvulnerable() == false) {
             gm.Death();
         }

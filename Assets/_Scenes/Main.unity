@@ -786,6 +786,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 678192195}
+    - target: {fileID: 114258897954453796, guid: b53a697fb97c5ac40bc8af8b7c47b249,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 678192195}
+    - target: {fileID: 114258897954453796, guid: b53a697fb97c5ac40bc8af8b7c47b249,
+        type: 2}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 526280998}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b53a697fb97c5ac40bc8af8b7c47b249, type: 2}
   m_IsPrefabParent: 0
@@ -1120,7 +1130,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &526281000
 MonoBehaviour:
