@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour {
 
     #region Variables
     private GameManager gameManager;
+    public Animator anim;
+    public AudioClip jumpSound;
+    
     public float speed;
     public float jumpForce;
     public float moveTime;
@@ -14,10 +17,12 @@ public class PlayerController : MonoBehaviour {
     public float invulnerableTimer = 1.0f;
 
     private Rigidbody2D rbPlayer;
+    private AudioSource aSource;
     private Vector3 prevPosition;
     private Vector3 nextPosition;
     private bool isMoving;
     private bool isAttacking;
+    private bool isJumping;
 
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
@@ -38,13 +43,18 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         direction = 1;
+        isMoving = false;
 
         rbPlayer = GetComponent<Rigidbody2D>();
-        isMoving = false;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        aSource = GetComponent<AudioSource>();
     }
     public void Update()
     {
+        anim.SetFloat("speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        anim.SetBool("isJumping", isJumping);
+        anim.SetBool("isAttacking", isAttacking);
+
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
         Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
         Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.left.x, 0) * raycastViewRange, Color.blue);
@@ -59,6 +69,7 @@ public class PlayerController : MonoBehaviour {
     {
         return isAttacking;
     }
+
     /// <summary>
     /// Movve Left Function
     /// </summary>
@@ -95,7 +106,10 @@ public class PlayerController : MonoBehaviour {
         rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
         rbPlayer.AddForce(new Vector2(0f, jumpForce));
 
+        aSource.PlayOneShot(jumpSound);
+
         isMoving = true;
+        isJumping = true;
 
         return true;
     }
@@ -163,6 +177,7 @@ public class PlayerController : MonoBehaviour {
         {
             rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
             isMoving = false;
+            isJumping = false;
         }
         if (collision.gameObject.tag == "DeathCollider")
         {

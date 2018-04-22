@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private CameraScript cs;
     [SerializeField] private LevelManager lm;
 
-    private Text windowTxt;
+    private Text windowTxt;    
     private bool gameOverActivated = false;
     #endregion
     #region Unity Methods
@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour {
     {
         gameOverActivated = true;
 
-        windowTxt = window.transform.GetChild(1).GetComponent<Text>();
-        windowTxt.text = "GameOver";
+        windowTxt = window.transform.GetChild(2).GetComponent<Text>();
+        windowTxt.text = "Game over";
 
         if (!window.activeInHierarchy)
         {
