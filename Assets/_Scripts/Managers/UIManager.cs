@@ -28,7 +28,8 @@ public class UIManager : MonoBehaviour {
     {
         if (!gameOverActivated)
         {
-            windowTxt = window.transform.GetChild(1).GetComponent<Text>();
+           
+            windowTxt = window.transform.GetChild(2).GetComponent<Text>();
             windowTxt.text = "PAUSE";
 
             if (!window.activeInHierarchy)

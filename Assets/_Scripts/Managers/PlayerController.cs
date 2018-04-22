@@ -103,13 +103,13 @@ public class PlayerController : MonoBehaviour {
     /// <returns></returns>
     public bool Jump()
     {
+        isMoving = true;
+        isJumping = true;
+
         rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
         rbPlayer.AddForce(new Vector2(0f, jumpForce));
 
         aSource.PlayOneShot(jumpSound);
-
-        isMoving = true;
-        isJumping = true;
 
         return true;
     }
