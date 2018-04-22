@@ -4,17 +4,23 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour {
 
+    public GameObject GameManager;
     public float speed;
+
+    private bool isAlive = true;
+
 	// Update is called once per frame
-	void Update () {
-        this.transform.position += Vector3.up * speed / 100; 
+	void Update ()
+    {
+        if (isAlive) this.transform.position += Vector3.up * speed / 100; 
 	}
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") {
-            Debug.Log("Player enetered trigger.");
-            //TODO: Respawn player
+        if (collision.gameObject.tag == "Player")
+        {
+            isAlive = false;
+            GameManager.GetComponent<GameManager>().Death();
         }
     }
 }

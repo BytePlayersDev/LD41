@@ -662,8 +662,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 678192195}
-  camera: {fileID: 0}
-  Triggers: []
   scoreController: {fileID: 0}
 --- !u!4 &526280999
 Transform:
@@ -947,6 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f214c5d3840428429bb81c1133828a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManager: {fileID: 526280997}
   speed: 2
 --- !u!61 &603441390
 BoxCollider2D:
