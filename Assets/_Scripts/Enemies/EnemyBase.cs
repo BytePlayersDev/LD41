@@ -83,12 +83,23 @@ public class EnemyBase : MonoBehaviour {
         isAlive = false;
         Destroy(this.gameObject.transform.parent);
     }
-
-    protected void OnTriggerEnter2D(Collider2D collision)
+    
+    protected void OncollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && player.GetComponent<PlayerController>().getIsInvulnerable() == false) {
-            gm.Death();
+        if (collision.gameObject.tag == "Player")  {
+
+            if( player.GetComponent<PlayerController>().getIsInvulnerable() == false)
+             gm.Death();
+            else
+            {
+                //vector forward
+                Vector2 force = -transform.forward;
+                GetComponent<Rigidbody>().AddForce(-transform.forward*10);
+            }
+            // cambiar para echarme para atras
         }
+
+
     }
 
 
