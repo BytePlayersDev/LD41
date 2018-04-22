@@ -9,10 +9,6 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject player;
     [SerializeField]
-    private GameObject camera;
-    [SerializeField]
-    private GameObject[] Triggers;
-    [SerializeField]
     private GameObject scoreController;
 
     private PlayerController pc;
@@ -69,6 +65,11 @@ public class GameManager : MonoBehaviour {
         }
 
         StartCoroutine("ReRollCard", cardActivated);        
+    }
+
+    public void Death()
+    {
+        Debug.Log("Player is dead.");
     }
 
     #endregion
