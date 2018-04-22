@@ -1659,6 +1659,8 @@ MonoBehaviour:
   moveTime: 0.5
   invulnerableTimer: 10
   scoreController: {fileID: 0}
+  raycastViewRange: 90
+  raycastHitRange: 11
 --- !u!1 &710971864
 GameObject:
   m_ObjectHideFlags: 0

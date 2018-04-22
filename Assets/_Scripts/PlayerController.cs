@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private UnityEngine.UI.Text scoreController;
 
-    float raycastViewRange = 90.0f;
-    float raycastHitRange = 5.0f;
+    public float raycastViewRange = 90.0f;
+    public float raycastHitRange = 5.0f;
     #endregion
 
     #region Functions
@@ -35,11 +35,12 @@ public class PlayerController : MonoBehaviour {
         rbPlayer = GetComponent<Rigidbody2D>();
         isMoving = false;
     }
-    //public void Update()
-    //{
-    //    Debug.DrawRay(this.transform.position, new Vector2(this.transform.localScale.x, 0) * raycastHitRange, Color.red);
-    //    Debug.DrawRay(this.transform.position, new Vector2(-this.transform.localScale.x, 0) * raycastViewRange, Color.blue);
-    //}
+    public void Update()
+    {
+        Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
+        Debug.DrawRay(rayOriginPosition, new Vector2(this.transform.localScale.x * raycastHitRange, 0) , Color.red);
+        Debug.DrawRay(this.transform.position, new Vector2(-this.transform.localScale.x, 0) * raycastViewRange, Color.blue);
+    }
     public bool GetIsMoving()
     {
         return isMoving;
@@ -93,7 +94,8 @@ public class PlayerController : MonoBehaviour {
     {
         //Check closest enemy to player
         //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(-this.transform.localScale.x, 0));
+        Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y -.5f, this.transform.position.z);
+        RaycastHit2D hit = Physics2D.Raycast(rayOriginPosition, new Vector2(-this.transform.localScale.x, -.5f));
         RaycastHit2D hitEnemy = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
 
         if (hit.collider.tag == "Enemy") {
