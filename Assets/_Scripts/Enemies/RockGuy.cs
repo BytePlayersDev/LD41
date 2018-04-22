@@ -22,7 +22,8 @@ public class RockGuy : EnemyBase {
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
 
         if (this.GetComponentInChildren<Collider2D>() == null) Debug.LogError("Add collider2D in " + this.gameObject.name);
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
+        //Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update(){
@@ -45,6 +46,7 @@ public class RockGuy : EnemyBase {
                 break;
         }
 	}
+
 
     #endregion
 

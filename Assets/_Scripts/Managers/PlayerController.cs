@@ -183,6 +183,10 @@ public class PlayerController : MonoBehaviour {
             ScorePlayerCanvas.text = (int.Parse(ScorePlayerCanvas.text) + score).ToString();
         }
     }
+
+    public bool getIsInvulnerable() {
+        return isInvulnerable;
+    }
     #endregion
 
     #region Coroutines
