@@ -1834,6 +1834,10 @@ Prefab:
       propertyPath: m_Name
       value: Platform_Blank (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
   m_IsPrefabParent: 0
@@ -2109,6 +2113,10 @@ Prefab:
     - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
       propertyPath: m_Name
       value: Platform_Blank (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
@@ -3062,6 +3070,10 @@ Prefab:
     - target: {fileID: 4969752491933400, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
@@ -4246,10 +4258,6 @@ Prefab:
     - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
       propertyPath: m_Name
       value: Platform_Blank1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
@@ -5489,6 +5497,10 @@ Prefab:
     - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
       propertyPath: m_Name
       value: Platform_Blank (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}

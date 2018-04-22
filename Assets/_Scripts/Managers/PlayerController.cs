@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Platform")
         {
-            collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
+            collision.gameObject.GetComponent<CompositeCollider2D>().isTrigger = false;
             showAndCalculatedPlayerScore(200);
         }
     }
