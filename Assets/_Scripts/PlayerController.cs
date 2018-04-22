@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour {
     private bool isMoving;
     private int direction;
 
+    [SerializeField]
+    private UnityEngine.UI.Text scoreController;
     #endregion
 
     #region Functions
@@ -86,6 +88,8 @@ public class PlayerController : MonoBehaviour {
         {
             rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
             isMoving = false;
+
+            
         }
     }
 
@@ -94,6 +98,9 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Platform")
         {
             collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
+            //TODO aumentar score 200 puntos al saltar
+            int score = int.Parse(scoreController.text) + 200;
+            scoreController.text = score.ToString();
         }
     }
 

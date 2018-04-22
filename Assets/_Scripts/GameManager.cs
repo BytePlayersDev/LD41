@@ -8,9 +8,6 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject player;
-    [SerializeField]
-    private GameObject scoreController;
-
     private PlayerController pc;
 
     #endregion
