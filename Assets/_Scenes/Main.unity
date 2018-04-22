@@ -468,7 +468,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202066514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -503,7 +503,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 202066514}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 0ef2361181cd5a04e90e92fff22896cb, type: 2}
   m_CullingMode: 0
@@ -1704,7 +1704,8 @@ MonoBehaviour:
   moveTime: 0.5
   attackDelay: 1
   invulnerableTimer: 10
-  scoreController: {fileID: 0}
+  ScorePlayer: {fileID: 202066514}
+  ScorePlayerCanvas: {fileID: 710971866}
   raycastViewRange: 90
   raycastHitRange: 11
 --- !u!1 &710971864
