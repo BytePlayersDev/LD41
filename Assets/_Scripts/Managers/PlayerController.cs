@@ -41,6 +41,9 @@ public class PlayerController : MonoBehaviour {
 
     public float raycastViewRange = 90.0f;
     public float raycastHitRange = 5.0f;
+
+
+    public GameObject Shield;
     #endregion
 
     #region Functions
@@ -252,9 +255,17 @@ public class PlayerController : MonoBehaviour {
     /// <returns></returns>
     IEnumerator ShieldTimer(float seconds) {
         isInvulnerable = true;
+        if(Shield != null)
+        {
+            Shield.SetActive(true);
+        }
         Physics2D.IgnoreLayerCollision(2, 8, true);
         yield return new WaitForSeconds(seconds);
         isInvulnerable = false;
+        if (Shield != null)
+        {
+            Shield.SetActive(false);
+        }
         Physics2D.IgnoreLayerCollision(2, 8, false);
     }
 
