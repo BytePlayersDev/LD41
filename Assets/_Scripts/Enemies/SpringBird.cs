@@ -6,6 +6,7 @@ public class SpringBird : EnemyBase {
 
     #region Variables
     private int changeOrder = 1;
+
     #endregion
 
     #region Unity Methods
@@ -19,6 +20,9 @@ public class SpringBird : EnemyBase {
         currentState = EnemyBase.State.Patrol;
 
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
+
+        if (this.GetComponentInChildren<Collider2D>() == null) Debug.LogError("Add collider2D in " + this.gameObject.name);
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
     }
 
     // Update is called once per frame
@@ -74,7 +78,7 @@ public class SpringBird : EnemyBase {
         waypointID = (waypointID + changeOrder) % (waypoints.Length);
     }
 
-    protected IEnumerator Static()
+    new protected IEnumerator Static()
     {
         yield return new WaitForSeconds(secondsToWait);
         currentState = State.Patrol;

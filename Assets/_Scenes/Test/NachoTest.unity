@@ -323,6 +323,14 @@ Prefab:
       propertyPath: bulletParent
       value: 
       objectReference: {fileID: 728435900}
+    - target: {fileID: 4085559893949920, guid: 332a97e2afdd1cb438a49a015d6d2b17, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4671070276319242, guid: 332a97e2afdd1cb438a49a015d6d2b17, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 332a97e2afdd1cb438a49a015d6d2b17, type: 2}
   m_IsPrefabParent: 0

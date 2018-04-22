@@ -43,6 +43,8 @@ public class EnemyBase : MonoBehaviour {
     //Attribute variables
     protected bool isAlive;
     protected bool isAttacking;
+    
+
     #endregion
 
     #region Custom Functions
@@ -68,12 +70,6 @@ public class EnemyBase : MonoBehaviour {
             facingRight = true;
             FlipSprite();
         }
-    }
-
-    protected IEnumerator Static()
-    {
-        yield return new WaitForSeconds(secondsToWait);
-        currentState = State.Patrol;
     }
 
     /// <summary>

@@ -30,6 +30,9 @@ public class BlackOctopus : EnemyBase {
 
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
         if (bulletPrf == null) Debug.LogError("Assign a bullet prefab to " + this.gameObject.name);
+
+        if (this.GetComponentInChildren<Collider2D>() == null) Debug.LogError("Add collider2D in " + this.gameObject.name);
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
     }
 
     private void Update(){

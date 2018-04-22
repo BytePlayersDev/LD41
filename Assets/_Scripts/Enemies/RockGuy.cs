@@ -20,7 +20,10 @@ public class RockGuy : EnemyBase {
 
         if (secondsToWait == 0) secondsToWait = 2;
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
-	}
+
+        if (this.GetComponentInChildren<Collider2D>() == null) Debug.LogError("Add collider2D in " + this.gameObject.name);
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
+    }
 
     private void Update(){
         anim.SetBool("isPatrolling", isPatrolling);
@@ -56,7 +59,7 @@ public class RockGuy : EnemyBase {
         }
     }
 
-    new protected IEnumerator Static()
+    protected IEnumerator Static()
     {
         yield return new WaitForSeconds(secondsToWait);
         currentState = State.Patrol;
