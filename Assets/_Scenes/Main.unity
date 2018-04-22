@@ -1016,6 +1016,7 @@ MonoBehaviour:
   name: 
   Used: 0
   Action: 0
+  cardActivated: {fileID: 0}
 --- !u!114 &514088544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1368,6 +1369,7 @@ MonoBehaviour:
   name: Right
   Used: 0
   Action: 0
+  cardActivated: {fileID: 0}
 --- !u!114 &560461912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1544,7 +1546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 1
+  speed: 0
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -1985,6 +1987,7 @@ MonoBehaviour:
   name: 
   Used: 0
   Action: 0
+  cardActivated: {fileID: 0}
 --- !u!114 &947105852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2279,6 +2282,7 @@ MonoBehaviour:
   name: 
   Used: 0
   Action: 0
+  cardActivated: {fileID: 0}
 --- !u!95 &965420951
 Animator:
   serializedVersion: 3
@@ -4514,6 +4518,7 @@ MonoBehaviour:
   name: 
   Used: 0
   Action: 0
+  cardActivated: {fileID: 0}
 --- !u!114 &1776412951
 MonoBehaviour:
   m_ObjectHideFlags: 0

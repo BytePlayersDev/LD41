@@ -84,7 +84,7 @@ public class EnemyBase : MonoBehaviour {
         Destroy(this.gameObject.transform.parent);
     }
     
-    protected void OncollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")  {
 
