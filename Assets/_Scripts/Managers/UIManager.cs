@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour {
     [SerializeField] private LevelManager lm;
 
     private Text windowTxt;
+    private bool gameOverActivated = false;
     #endregion
     #region Unity Methods
     private void Start()
@@ -23,25 +24,32 @@ public class UIManager : MonoBehaviour {
     #endregion
 
     #region UI Functions
-    public void PauseButtonPressed() {
+    public void PauseButtonPressed()
+    {
+        if (!gameOverActivated)
+        {
+            windowTxt = window.transform.GetChild(1).GetComponent<Text>();
+            windowTxt.text = "PAUSE";
 
-        windowTxt = window.transform.GetChild(1).GetComponent<Text>();
-        windowTxt.text = "PAUSE";
-
-        if (!window.activeInHierarchy){
-            window.SetActive(true);
-            Time.timeScale = 0;
-            cs.SetGamePaused(true);
-        }
-        else{
-            window.SetActive(false);
-            cs.SetGamePaused(false);
-            Time.timeScale = 1;
+            if (!window.activeInHierarchy)
+            {
+                window.SetActive(true);
+                Time.timeScale = 0;
+                cs.SetGamePaused(true);
+            }
+            else
+            {
+                window.SetActive(false);
+                cs.SetGamePaused(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
     public void ShowGameOver()
     {
+        gameOverActivated = true;
+
         windowTxt = window.transform.GetChild(1).GetComponent<Text>();
         windowTxt.text = "GameOver";
 
