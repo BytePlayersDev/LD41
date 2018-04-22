@@ -15,11 +15,14 @@ public class CardDisplay : MonoBehaviour {
     //Acción
     public CardActionEnum.Action Action;
     [SerializeField] private CardActivated cardActivated;
+    private GameManager gm;
 
     void Start ()
     {
+        gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         cardActivated = GetComponent<CardActivated>();
         Card = cardActivated.ChooseCard();
+       // gm.StartCoroutine(gm.FirstReRollCard(cardActivated));
         UpdateCardAtributes();
 
     }

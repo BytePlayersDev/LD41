@@ -63,4 +63,6 @@ public class CardActivated : MonoBehaviour {
 
     }
 
+
+
 }
