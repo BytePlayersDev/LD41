@@ -6,12 +6,15 @@ public class CameraScript : MonoBehaviour {
 
     public GameObject GameManager;
     public float speed;
+    private bool isGamePaused = false;
 
     private bool isAlive = true;
 
 	// Update is called once per frame
 	void Update ()
     {
+        if (isGamePaused)
+            return;
         if (isAlive) this.transform.position += Vector3.up * speed / 100; 
 	}
 
@@ -22,5 +25,9 @@ public class CameraScript : MonoBehaviour {
             //isAlive = false;
             //GameManager.GetComponent<GameManager>().Death();
         }
+    }
+
+    public void SetGamePaused(bool _gamePaused) {
+        isGamePaused = _gamePaused;
     }
 }

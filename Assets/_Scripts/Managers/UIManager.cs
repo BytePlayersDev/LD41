@@ -6,7 +6,7 @@ public class UIManager : MonoBehaviour {
 
     #region UI Variables
     [SerializeField] private GameObject pauseWindow;
-
+    [SerializeField] private CameraScript cs;
     #endregion
     #region Unity Methods
     private void Start()
@@ -23,9 +23,11 @@ public class UIManager : MonoBehaviour {
         if (!pauseWindow.activeInHierarchy){
             pauseWindow.SetActive(true);
             Time.timeScale = 0;
+            cs.SetGamePaused(true);
         }
         else{
             pauseWindow.SetActive(false);
+            cs.SetGamePaused(false);
             Time.timeScale = 1;
         }
     }
