@@ -221,8 +221,10 @@ public class PlayerController : MonoBehaviour {
     /// <returns></returns>
     IEnumerator ShieldTimer(float seconds) {
         isInvulnerable = true;
+        Physics2D.IgnoreLayerCollision(0, 8, true);
         yield return new WaitForSeconds(seconds);
         isInvulnerable = false;
+        Physics2D.IgnoreLayerCollision(0, 8, false);
     }
 
     #endregion

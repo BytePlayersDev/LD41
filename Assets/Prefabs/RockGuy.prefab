@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 114063277748284912}
   - component: {fileID: 50882565595360590}
   - component: {fileID: 61022658958204960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RockGuyHolder
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4572008254995950}
   - component: {fileID: 212296221570153940}
   - component: {fileID: 95559439992654682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Graphics
   m_TagString: Untagged
   m_Icon: {fileID: 0}

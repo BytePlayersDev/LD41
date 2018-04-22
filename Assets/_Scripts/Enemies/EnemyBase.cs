@@ -90,13 +90,7 @@ public class EnemyBase : MonoBehaviour {
 
             if( player.GetComponent<PlayerController>().getIsInvulnerable() == false)
              gm.Death();
-            else
-            {
-                //vector forward
-                Vector2 force = -transform.forward;
-                GetComponent<Rigidbody>().AddForce(-transform.forward*10);
-            }
-            // cambiar para echarme para atras
+            
         }
 
 
