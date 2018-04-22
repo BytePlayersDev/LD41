@@ -22,8 +22,11 @@ public class PlayerController : MonoBehaviour {
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
 
+    //Scores
     [SerializeField]
-    private UnityEngine.UI.Text scoreController;
+    private GameObject ScorePlayer;
+    [SerializeField]
+    private UnityEngine.UI.Text ScorePlayerCanvas;
 
     public float raycastViewRange = 90.0f;
     public float raycastHitRange = 5.0f;
@@ -160,12 +163,26 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Platform")
         {
             collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
-            //TODO aumentar score 200 puntos al saltar
-            int score = int.Parse(scoreController.text) + 200;
-            scoreController.text = score.ToString();
+            showAndCalculatedPlayerScore(200);
         }
     }
+    private void showAndCalculatedPlayerScore(int score)
+    {
+        TextMesh TextMesh = ScorePlayer.GetComponent<TextMesh>();
+        if (TextMesh != null)
+        {
 
+            TextMesh.text = score.ToString();
+            //activar la animacion
+            TextMesh.GetComponent<Animator>().enabled = true;
+            TextMesh.GetComponent<Animator>().Play("ScoreTextPlayerAnimation", -1, 0f);
+        }
+        //Aumentar score canvas
+        if (ScorePlayerCanvas != null)
+        {
+            ScorePlayerCanvas.text = (int.Parse(ScorePlayerCanvas.text) + score).ToString();
+        }
+    }
     #endregion
 
     #region Coroutines
