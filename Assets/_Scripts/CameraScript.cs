@@ -19,8 +19,8 @@ public class CameraScript : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Player")
         {
-            isAlive = false;
-            GameManager.GetComponent<GameManager>().Death();
+            //isAlive = false;
+            //GameManager.GetComponent<GameManager>().Death();
         }
     }
 }
