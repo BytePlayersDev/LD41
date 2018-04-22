@@ -122,9 +122,10 @@ GameObject:
   m_Component:
   - component: {fileID: 30014142}
   - component: {fileID: 30014143}
+  - component: {fileID: 30014144}
   m_Layer: 0
   m_Name: DeathT_2
-  m_TagString: Untagged
+  m_TagString: DeathCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,6 +168,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5928526, y: 6.4575567}
   m_EdgeRadius: 0
+--- !u!50 &30014144
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 30014141}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &156444849
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +703,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1068158510}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b53a697fb97c5ac40bc8af8b7c47b249, type: 2}
   m_IsPrefabParent: 0
@@ -1811,9 +1832,10 @@ GameObject:
   m_Component:
   - component: {fileID: 956970047}
   - component: {fileID: 956970048}
+  - component: {fileID: 956970049}
   m_Layer: 0
   m_Name: DeathT_1
-  m_TagString: Untagged
+  m_TagString: DeathCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1856,6 +1878,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5928526, y: 6.4575567}
   m_EdgeRadius: 0
+--- !u!50 &956970049
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 956970046}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &961796056
 Prefab:
   m_ObjectHideFlags: 0
@@ -5487,9 +5529,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1976904133}
   - component: {fileID: 1976904134}
+  - component: {fileID: 1976904135}
   m_Layer: 0
   m_Name: DeathT_3
-  m_TagString: Untagged
+  m_TagString: DeathCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5532,6 +5575,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 24.318926, y: 0.33657682}
   m_EdgeRadius: 0
+--- !u!50 &1976904135
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976904132}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2079215709
 GameObject:
   m_ObjectHideFlags: 0
