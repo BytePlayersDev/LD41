@@ -67,12 +67,11 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator ReRollCard(CardActivated cardActivated)
     {
-        while (!pc.GetIsMoving())
+        while (pc.GetIsMoving() || pc.GetIsAttacking())
         {
             yield return new WaitForSeconds(0.5f);
         }
-
-        yield return new WaitForSeconds(0.5f);
+        
         cardActivated.ReRollCard();
     }
 

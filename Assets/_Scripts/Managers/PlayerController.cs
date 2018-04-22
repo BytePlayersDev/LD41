@@ -10,14 +10,17 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float jumpForce;
     public float moveTime;
-    
+    public float attackDelay = 1f;
+    public float invulnerableTimer = 10.0f;
+
     private Rigidbody2D rbPlayer;
     private Vector3 prevPosition;
     private Vector3 nextPosition;
     private bool isMoving;
+    private bool isAttacking;
+
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
-    public float invulnerableTimer = 10.0f;
 
     [SerializeField]
     private UnityEngine.UI.Text scoreController;
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         direction = 1;
+
         rbPlayer = GetComponent<Rigidbody2D>();
         isMoving = false;
     }
@@ -41,9 +45,15 @@ public class PlayerController : MonoBehaviour {
         Debug.DrawRay(rayOriginPosition, new Vector2(this.transform.localScale.x * raycastHitRange, 0) , Color.red);
         Debug.DrawRay(this.transform.position, new Vector2(-this.transform.localScale.x, 0) * raycastViewRange, Color.blue);
     }
+
     public bool GetIsMoving()
     {
         return isMoving;
+    }
+
+    public bool GetIsAttacking()
+    {
+        return isAttacking;
     }
     /// <summary>
     /// Movve Left Function
@@ -109,6 +119,7 @@ public class PlayerController : MonoBehaviour {
         }
         //if it doesnt hit anything then keep going.
 
+        isAttacking = true;
 
         return true;
     }
@@ -128,7 +139,9 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     protected void FlipSprite()
     {
-        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        if (direction == 1) GetComponent<SpriteRenderer>().flipX = true;
+        else GetComponent<SpriteRenderer>().flipX = false;
+
         direction *= -1;
     }
 
@@ -156,14 +169,19 @@ public class PlayerController : MonoBehaviour {
 
     #region Coroutines
 
-    // This courutine runs always, increasing the value of "Critic Percentage"
-    IEnumerator GetValid()
+    /// <summary>
+    /// Timer that sets a delay on attack.
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    IEnumerator WaitAttack(float seconds)
     {
-        yield return new WaitForSeconds(moveTime);
+        yield return new WaitForSeconds(seconds);
+        isAttacking = false;
     }
 
     /// <summary>
-    /// Timer That turns on and off the shield.
+    /// Timer that turns on and off the shield.
     /// </summary>
     /// <param name="seconds"></param>
     /// <returns></returns>
