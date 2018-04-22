@@ -58,10 +58,7 @@ public class CardActivated : MonoBehaviour {
 
         for (int i = 0; i < Button.Length; i++)
         {
-
-
             Button[i].interactable = true ;
-
         }
 
     }

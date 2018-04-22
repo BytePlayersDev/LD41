@@ -35,6 +35,7 @@ public class BlackOctopus : EnemyBase {
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
 
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void Update(){

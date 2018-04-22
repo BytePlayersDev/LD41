@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour {
     private bool isEnemyDetected = false;
     //Attack/Shooting Variables
     public GameObject bulletPrf;
-    public float lastShot;
-    public float delayBetweenBullets = 1;
     public float bulletSpeed;
     public Transform bulletSpawn;
     public Transform bulletParent;
@@ -57,7 +55,6 @@ public class PlayerController : MonoBehaviour {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         aSource = GetComponent<AudioSource>();
 
-        lastShot = Time.time;
     }
     public void Update()
     {
