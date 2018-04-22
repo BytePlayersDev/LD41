@@ -27,34 +27,26 @@ public class GameManager : MonoBehaviour {
             case CardActionEnum.Action.MoveRight:
                 {
                     pc.MoveRight();
-                    
                 }
                 break;
             case CardActionEnum.Action.MoveLeft:
                 {
                     pc.MoveLeft();
-                    
                 }
                 break;
             case CardActionEnum.Action.Jump:
                 {
                     pc.Jump();
-                    
-
                 }
                 break;
             case CardActionEnum.Action.Attack:
                 {
                     pc.Attack();
-                   
-
                 }
                 break;
             case CardActionEnum.Action.Defend:
                 {
                     pc.Defend();
-                   
-
                 }
                 break;
             default:

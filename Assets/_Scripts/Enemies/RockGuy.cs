@@ -6,7 +6,7 @@ public class RockGuy : EnemyBase {
     #region Variables
     private Vector2 translation;
     [SerializeField]private Animator anim;
-    private bool isPatroling = true;
+    private bool isPatrolling = true;
     #endregion
 
     #region Unity Methods
@@ -23,14 +23,14 @@ public class RockGuy : EnemyBase {
 	}
 
     private void Update(){
-        anim.SetBool("isPatrolling", isPatroling);
+        anim.SetBool("isPatrolling", isPatrolling);
     }
     void FixedUpdate () {
         if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition)
         {
             ChangeWaypoint();
             currentState = State.Static;
-            isPatroling = false;
+            isPatrolling = false;
         }
 
         switch (currentState) {
@@ -60,7 +60,7 @@ public class RockGuy : EnemyBase {
     {
         yield return new WaitForSeconds(secondsToWait);
         currentState = State.Patrol;
-        isPatroling = true;
+        isPatrolling = true;
     }
 
     #endregion
