@@ -16,3 +16,4 @@ MonoBehaviour:
   name: Jump
   Used: 0
   Action: 2
+  probability: 0.3

@@ -16,3 +16,4 @@ MonoBehaviour:
   name: MoveRight
   Used: 0
   Action: 0
+  probability: 0.25

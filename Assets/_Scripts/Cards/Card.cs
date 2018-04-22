@@ -18,5 +18,7 @@ public class Card :ScriptableObject {
     public bool Used;
     //Acción
     public CardActionEnum.Action Action;
+    //probability
+    public float probability;
 
 }

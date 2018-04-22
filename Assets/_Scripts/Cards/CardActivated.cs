@@ -24,15 +24,34 @@ public class CardActivated : MonoBehaviour {
         //TODO :  Deberia pasarle tambien mi boton para que me reactive y me crea
         Game.CheckAction(CardDisplay.Card.Action, this);
     }
-
-    public void ReRollCard()
-    {
+    public Card ChooseCard() {
+        float total = 0;
         if (DeckList != null)
         {
-            int random = Random.Range(0, (DeckList.Decks.Count));
-            CardDisplay.UpdateCard(DeckList.Decks[random]);
+            foreach (Card c in DeckList.Decks)
+            {
+                total += c.probability;
+            }
         }
+
+        float randomPoint = Random.value * total;
+
+        for (int i = 0; i < DeckList.Decks.Count; i++)
+        {
+            if (randomPoint < DeckList.Decks[i].probability)
+                return DeckList.Decks[i];
+            else
+                randomPoint -= DeckList.Decks[i].probability;
+        }
+
+        return DeckList.Decks[DeckList.Decks.Count - 1];
+    }
+    public void ReRollCard()
+    {
+
+        Card choosedCard = ChooseCard();
         //Activar button
+        CardDisplay.UpdateCard(choosedCard);
 
         UnityEngine.UI.Button[] Button = gameObject.transform.parent.GetComponentsInChildren<UnityEngine.UI.Button>();
 

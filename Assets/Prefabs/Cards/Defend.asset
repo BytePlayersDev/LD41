@@ -16,3 +16,4 @@ MonoBehaviour:
   name: Defend
   Used: 0
   Action: 4
+  probability: 0.05

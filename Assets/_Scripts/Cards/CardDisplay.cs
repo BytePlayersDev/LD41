@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CardDisplay : MonoBehaviour {
 
-    public Card Card;
+    [HideInInspector]public Card Card;
 
     //Sprite de la carta
     public Animator NewAnimator;
@@ -14,9 +14,12 @@ public class CardDisplay : MonoBehaviour {
     public bool Used;
     //Acción
     public CardActionEnum.Action Action;
-    // Use this for initialization
+    [SerializeField] private CardActivated cardActivated;
+
     void Start ()
     {
+        cardActivated = GetComponent<CardActivated>();
+        Card = cardActivated.ChooseCard();
         UpdateCardAtributes();
 
     }

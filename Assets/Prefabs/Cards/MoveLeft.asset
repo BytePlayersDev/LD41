@@ -16,3 +16,4 @@ MonoBehaviour:
   name: MoveLeft
   Used: 0
   Action: 1
+  probability: 0.25

@@ -16,3 +16,4 @@ MonoBehaviour:
   name: Attack
   Used: 0
   Action: 3
+  probability: 0.15
