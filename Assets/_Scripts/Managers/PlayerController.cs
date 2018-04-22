@@ -143,8 +143,8 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     protected void FlipSprite()
     {
-        if (direction == 1) GetComponent<SpriteRenderer>().flipX = true;
-        else GetComponent<SpriteRenderer>().flipX = false;
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
+        transform.transform.GetChild(0).localScale = new Vector2(transform.transform.GetChild(0).transform.localScale.x * -1, transform.transform.GetChild(0).transform.localScale.y);
 
         direction *= -1;
     }

@@ -18,7 +18,6 @@ public class SplashFade : MonoBehaviour {
         yield return new WaitForSeconds(3.5f);
 
         SceneManager.LoadScene("Menu");
-
     }
 
     void FadeIn()
