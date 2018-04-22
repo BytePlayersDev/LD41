@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour {
         //if it doesnt hit anything then keep going.
 
         isAttacking = true;
+        StartCoroutine(WaitAttack(attackDelay));
 
         return true;
     }
