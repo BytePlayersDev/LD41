@@ -77,12 +77,14 @@ public class GameManager : MonoBehaviour {
     #region Coroutines
 
     IEnumerator ReRollCard(CardActivated cardActivated)
-    {   
-      
-         yield return new WaitForSeconds(0.5f);
+    {
+        while (!pc.GetIsMoving())
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
 
+        yield return new WaitForSeconds(0.5f);
         cardActivated.ReRollCard();
-
     }
 
     #endregion

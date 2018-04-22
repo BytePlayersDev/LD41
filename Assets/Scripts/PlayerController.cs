@@ -29,6 +29,11 @@ public class PlayerController : MonoBehaviour {
         isMoving = false;
     }
     
+    public bool GetIsMoving()
+    {
+        return isMoving;
+    }
+
     public bool MoveLeft()
     {
         if (direction == 1) FlipSprite();
