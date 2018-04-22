@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField]
     private UnityEngine.UI.Text scoreController;
+
+    float raycastViewRange = 90.0f;
+    float raycastHitRange = 10.0f;
     #endregion
 
     #region Functions
@@ -30,7 +33,11 @@ public class PlayerController : MonoBehaviour {
         rbPlayer = GetComponent<Rigidbody2D>();
         isMoving = false;
     }
-    
+    public void Update()
+    {
+        Debug.DrawRay(this.transform.position, new Vector2(this.transform.localScale.x, 0) * raycastHitRange, Color.red);
+        Debug.DrawRay(this.transform.position, new Vector2(-this.transform.localScale.x, 0) * raycastViewRange, Color.blue);
+    }
     public bool GetIsMoving()
     {
         return isMoving;
@@ -68,6 +75,23 @@ public class PlayerController : MonoBehaviour {
 
     public bool Attack()
     {
+        //Check closest enemy to player
+        //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(-this.transform.localScale.x, 0));
+        RaycastHit2D hitEnemy = Physics2D.Raycast(this.transform.position, new Vector2(-this.transform.localScale.x, 0));
+
+        if (hit.collider.tag == "Enemy") {
+            //Flip sprite towards enmey
+            FlipSprite();
+        }
+        //Perform Hit with a raycast
+        if (hitEnemy.collider.tag == "Enemy" && Mathf.Abs(Vector3.Distance(hitEnemy.collider.gameObject.transform.position, this.transform.position)) <= raycastHitRange) {
+            //if the raycast hits an enemy destroy the enemy gameobject (maybe send a signal to play death animation?)
+            hitEnemy.collider.gameObject.GetComponent<EnemyBase>().Die();
+        }
+        //if it doesnt hit anything then keep going.
+
+
         return true;
     }
 

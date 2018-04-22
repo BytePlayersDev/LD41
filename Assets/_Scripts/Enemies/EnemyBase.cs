@@ -79,11 +79,12 @@ public class EnemyBase : MonoBehaviour {
     /// <summary>
     /// Displays enemy death
     /// </summary>
-    protected void Die() {
+    public void Die() {
 
         //TODO: Destroy GameObject and children
         //TODO: Play Death animation
         isAlive = false;
+        Destroy(this.gameObject.transform.parent);
     }
 
     protected void OnTriggerEnter2D(Collider2D collision)

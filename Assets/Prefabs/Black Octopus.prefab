@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 114095424931474116}
   m_Layer: 0
   m_Name: BlackOctopusHolder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,12 +352,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9818a79cd2d715549a45820351a858b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentState: 0
   waypoints:
   - {fileID: 4671070276319242}
   - {fileID: 4068885667126484}
   - {fileID: 4085559893949920}
   - {fileID: 4209975954629328}
   waypointID: 0
+  secondsToWait: 0.5
   activeNode: {fileID: 0}
   moveSpeed: 2
   player: {fileID: 0}
