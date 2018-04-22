@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 514088540}
   - component: {fileID: 514088544}
   - component: {fileID: 514088543}
+  - component: {fileID: 514088545}
   m_Layer: 5
   m_Name: CardBtn3
   m_TagString: Untagged
@@ -598,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 706d623c27dfb43408eceedc9d95589e, type: 2}
-  artwork: {fileID: 0}
+  NewAnimator: {fileID: 0}
   name: 
   Used: 0
   Action: 0
@@ -616,6 +617,23 @@ MonoBehaviour:
   Game: {fileID: 526280998}
   CardDisplay: {fileID: 514088543}
   DeckList: {fileID: 108696458}
+--- !u!95 &514088545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 514088538}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &526280997
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 678192195}
+  camera: {fileID: 0}
+  Triggers: []
   scoreController: {fileID: 0}
 --- !u!4 &526280999
 Transform:
@@ -671,6 +691,7 @@ GameObject:
   - component: {fileID: 560461908}
   - component: {fileID: 560461912}
   - component: {fileID: 560461911}
+  - component: {fileID: 560461913}
   m_Layer: 5
   m_Name: CardBtn1
   m_TagString: Untagged
@@ -793,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 556a9e9a023d23b49b446c09b8df4910, type: 2}
-  artwork: {fileID: 0}
+  NewAnimator: {fileID: 0}
   name: Right
   Used: 0
   Action: 0
@@ -811,6 +832,23 @@ MonoBehaviour:
   Game: {fileID: 526280998}
   CardDisplay: {fileID: 560461911}
   DeckList: {fileID: 108696458}
+--- !u!95 &560461913
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 560461906}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &603441384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,6 +1140,7 @@ GameObject:
   - component: {fileID: 947105848}
   - component: {fileID: 947105852}
   - component: {fileID: 947105851}
+  - component: {fileID: 947105853}
   m_Layer: 5
   m_Name: CardBtn4
   m_TagString: Untagged
@@ -1224,7 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  artwork: {fileID: 0}
+  NewAnimator: {fileID: 0}
   name: 
   Used: 0
   Action: 0
@@ -1242,6 +1281,23 @@ MonoBehaviour:
   Game: {fileID: 526280998}
   CardDisplay: {fileID: 947105851}
   DeckList: {fileID: 108696458}
+--- !u!95 &947105853
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 947105846}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &956970046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,6 +1365,7 @@ GameObject:
   - component: {fileID: 965420946}
   - component: {fileID: 965420950}
   - component: {fileID: 965420949}
+  - component: {fileID: 965420951}
   m_Layer: 5
   m_Name: CardBtn2
   m_TagString: Untagged
@@ -1445,10 +1502,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  artwork: {fileID: 0}
+  NewAnimator: {fileID: 0}
   name: 
   Used: 0
   Action: 0
+--- !u!95 &965420951
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 965420944}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1397220540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,6 +1655,7 @@ GameObject:
   - component: {fileID: 1776412947}
   - component: {fileID: 1776412951}
   - component: {fileID: 1776412950}
+  - component: {fileID: 1776412952}
   m_Layer: 5
   m_Name: CardBtn5
   m_TagString: Untagged
@@ -1703,7 +1778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  artwork: {fileID: 0}
+  NewAnimator: {fileID: 0}
   name: 
   Used: 0
   Action: 0
@@ -1721,6 +1796,23 @@ MonoBehaviour:
   Game: {fileID: 526280998}
   CardDisplay: {fileID: 1776412950}
   DeckList: {fileID: 108696458}
+--- !u!95 &1776412952
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1776412945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1784570016
 GameObject:
   m_ObjectHideFlags: 0
