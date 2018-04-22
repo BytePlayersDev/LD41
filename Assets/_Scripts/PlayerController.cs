@@ -136,8 +136,6 @@ public class PlayerController : MonoBehaviour {
         {
             rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
             isMoving = false;
-
-            
         }
     }
 
