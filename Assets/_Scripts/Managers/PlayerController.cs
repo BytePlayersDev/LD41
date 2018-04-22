@@ -27,6 +27,13 @@ public class PlayerController : MonoBehaviour {
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
     private bool isEnemyDetected = false;
+    //Attack/Shooting Variables
+    public GameObject bulletPrf;
+    public float lastShot;
+    public float delayBetweenBullets = 1;
+    public float bulletSpeed;
+    public Transform bulletSpawn;
+    public Transform bulletParent;
 
     //Scores
     [SerializeField]
@@ -49,6 +56,8 @@ public class PlayerController : MonoBehaviour {
         rbPlayer = GetComponent<Rigidbody2D>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         aSource = GetComponent<AudioSource>();
+
+        lastShot = Time.time;
     }
     public void Update()
     {
@@ -79,15 +88,16 @@ public class PlayerController : MonoBehaviour {
         RaycastHit2D hit = Physics2D.Raycast(rayOriginPosition, new Vector2(-transform.localScale.x, 0));
         // RaycastHit2D hitEnemy = Physics2D.Raycast(rayOriginPosition, Vector2.right);
 
-        if (hit.collider.tag == "Enemy")
-        {
-            //Flip sprite towards enmey
-            Debug.Log("FlipSprite");
-            FlipSprite();
-            isEnemyDetected = true;
-        } else {
-            isEnemyDetected = false;
-        }
+        if(hit.collider != null)
+            if (hit.collider.tag == "Enemy")
+            {
+                //Flip sprite towards enmey
+                Debug.Log("FlipSprite");
+                FlipSprite();
+                isEnemyDetected = true;
+            } else {
+                isEnemyDetected = false;
+            }
     }
 
     /// <summary>
@@ -143,12 +153,19 @@ public class PlayerController : MonoBehaviour {
         //Check closest enemy to player
         //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
         isAttacking = true;
-
+        Shoot();
         StartCoroutine(WaitAttack(attackDelay));
 
         return true;
     }
+    private void Shoot() {
 
+        var bullet = (GameObject)Instantiate(bulletPrf, bulletSpawn.position, bulletSpawn.rotation);
+        bullet.transform.SetParent(bulletParent);
+        bullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(1 * transform.localScale.x,0) * bulletSpeed * 10);
+
+
+    }
     /// <summary>
     /// Defend Function
     /// </summary>

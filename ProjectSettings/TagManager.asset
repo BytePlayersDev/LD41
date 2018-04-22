@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Enemy
   - DeathCollider
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

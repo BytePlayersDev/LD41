@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour {
     protected State currentState;
 
     #region Variables
-    //Rigidbody2D rb;
+    protected Rigidbody2D rb;
 
     //Nodes for patrol behavior
     //This is set for only 2 waypoints
@@ -83,14 +83,24 @@ public class EnemyBase : MonoBehaviour {
         isAlive = false;
         Destroy(this.gameObject.transform.parent);
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "DeathCollider")
+            Destroy(gameObject.transform.parent.gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")  {
 
             if( player.GetComponent<PlayerController>().getIsInvulnerable() == false)
              gm.Death();
-            
+        }
+
+        if (collision.gameObject.tag == "PlayerBullet") {
+            rb.AddForce(new Vector2(3000 * collision.gameObject.transform.localScale.x, 0));
+            //collision.gameObject.GetComponent<Collider2D>().enabled = false;
         }
 
 
