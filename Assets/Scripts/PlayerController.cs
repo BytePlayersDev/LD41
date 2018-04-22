@@ -6,9 +6,6 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour {
 
     #region Variables
-    
-    public GameObject player;
-    public GameObject[] waypoints;
 
     public float speed;
     public float jumpForce;
@@ -28,32 +25,14 @@ public class PlayerController : MonoBehaviour {
     void Start ()
     {
         direction = 1;
-        rbPlayer = player.GetComponent<Rigidbody2D>();
+        rbPlayer = GetComponent<Rigidbody2D>();
         isMoving = false;
     }
-
-    void FixedUpdate()
-    {
-        if (isMoving)
-        {
-            for (int i = 0; i < waypoints.Length; ++i)
-            {
-                if (Mathf.Abs(Vector2.Distance(waypoints[i].transform.position, player.transform.position)) < .5f)
-                {
-                    rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
-                    MoveWaypoints();
-                }
-            }
-        }
-    }
-
+    
     public bool MoveLeft()
     {
         if (direction == 1) FlipSprite();
-
-        prevPosition = player.transform.position;
-        nextPosition = new Vector3(prevPosition.x - 5, prevPosition.y, prevPosition.z);
-
+        
         rbPlayer.velocity = new Vector2(speed * moveTime * -1, rbPlayer.velocity.y);
         isMoving = true;
 
@@ -64,9 +43,6 @@ public class PlayerController : MonoBehaviour {
     {
         if (direction == -1) FlipSprite();
 
-        prevPosition = player.transform.position;
-        nextPosition = new Vector3(prevPosition.x + 5, prevPosition.y, prevPosition.z);
-
         rbPlayer.velocity = new Vector2(speed * moveTime, rbPlayer.velocity.y);
         isMoving = true;
 
@@ -75,9 +51,6 @@ public class PlayerController : MonoBehaviour {
 
     public bool Jump()
     {
-        prevPosition = player.transform.position;
-        nextPosition = new Vector3(prevPosition.x, prevPosition.y + 10, prevPosition.z);
-
         rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
         rbPlayer.AddForce(new Vector2(0f, jumpForce));
 
@@ -98,22 +71,25 @@ public class PlayerController : MonoBehaviour {
 
     protected void FlipSprite()
     {
-        player.transform.localScale = new Vector2(player.transform.localScale.x * -1, player.transform.localScale.y);
+        transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         direction *= -1;
     }
 
-    protected void MoveWaypoints()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(nextPosition);
-        Debug.Log(prevPosition);
+        if (collision.gameObject.tag == "Waypoint" && isMoving)
+        {
+            rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
+            isMoving = false;
+        }
+    }
 
-        Vector3 diference = nextPosition - prevPosition;
-
-        waypoints[0].transform.position += diference;
-        waypoints[1].transform.position += diference;
-        waypoints[2].transform.position += diference;
-
-        isMoving = false;
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Platform")
+        {
+            collision.gameObject.GetComponent<TilemapCollider2D>().isTrigger = false;
+        }
     }
 
     #endregion

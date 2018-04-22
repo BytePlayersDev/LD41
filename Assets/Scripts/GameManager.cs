@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject player;
     [SerializeField]
+    private GameObject camera;
+    [SerializeField]
+    private GameObject[] Triggers;
+    [SerializeField]
     private GameObject scoreController;
 
     private PlayerController pc;
