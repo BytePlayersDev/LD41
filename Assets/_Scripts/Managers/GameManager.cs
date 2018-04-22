@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
     public void Death()
     {
         Debug.Log("Player is dead.");
+        GetComponent<UIManager>().ShowGameOver();
     }
 
     #endregion

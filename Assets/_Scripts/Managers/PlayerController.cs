@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlayerController : MonoBehaviour {
 
     #region Variables
-
+    private GameManager gameManager;
     public float speed;
     public float jumpForce;
     public float moveTime;
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour {
 
         rbPlayer = GetComponent<Rigidbody2D>();
         isMoving = false;
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     public void Update()
     {
@@ -162,6 +163,10 @@ public class PlayerController : MonoBehaviour {
         {
             rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
             isMoving = false;
+        }
+        if (collision.gameObject.tag == "DeathCollider")
+        {
+            gameManager.Death();
         }
     }
 
