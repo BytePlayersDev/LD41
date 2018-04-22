@@ -7,7 +7,7 @@ public class CardDisplay : MonoBehaviour {
     public Card Card;
 
     //Sprite de la carta
-    public Sprite artwork;
+    public Animator NewAnimator;
     //Nombre de la carta
     public new string name;
     //Flag de uso
@@ -23,14 +23,12 @@ public class CardDisplay : MonoBehaviour {
 
     private void UpdateCardAtributes()
     {
-        //busca la imagen del boton y actualizarla
-
-        UnityEngine.UI.Image ImageButton = GetComponent<UnityEngine.UI.Image>();
-        if(ImageButton != null)
-        {
-            ImageButton.sprite = Card.artwork;
-        }
         
+        //Cambiar animaciones
+        Animator animator = GetComponent<UnityEngine.Animator>();
+        animator.runtimeAnimatorController = Card.Animator;
+      
+
         name = Card.name;
         Used = Card.Used;
         Action = Card.Action;

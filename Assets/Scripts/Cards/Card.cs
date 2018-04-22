@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -7,7 +8,10 @@ using UnityEngine;
 public class Card :ScriptableObject {
 
     //Sprite de la carta
-    public Sprite artwork;
+    public AnimationClip Animation;
+
+    //Sprite de la carta
+    public AnimatorController Animator;
     //Nombre de la carta
     public new string name;
     //Flag de uso
