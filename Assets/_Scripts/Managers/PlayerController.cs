@@ -66,7 +66,10 @@ public class PlayerController : MonoBehaviour {
         //Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
         Debug.DrawRay(rayOriginPosition, new Vector2(-transform.localScale.x, 0) * raycastViewRange, Color.blue);
 
-        DetectEnemyBack();
+        if (!isInvulnerable)
+        {
+            DetectEnemyBack();
+        }
 
     }
 
@@ -249,10 +252,10 @@ public class PlayerController : MonoBehaviour {
     /// <returns></returns>
     IEnumerator ShieldTimer(float seconds) {
         isInvulnerable = true;
-        Physics2D.IgnoreLayerCollision(0, 8, true);
+        Physics2D.IgnoreLayerCollision(2, 8, true);
         yield return new WaitForSeconds(seconds);
         isInvulnerable = false;
-        Physics2D.IgnoreLayerCollision(0, 8, false);
+        Physics2D.IgnoreLayerCollision(2, 8, false);
     }
 
     #endregion
