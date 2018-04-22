@@ -13,7 +13,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     float timer = 0f;
     #endregion
-    private void Update()
+    private void FixedUpdate()
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
