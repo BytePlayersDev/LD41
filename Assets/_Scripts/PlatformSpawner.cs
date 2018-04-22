@@ -9,6 +9,7 @@ public class PlatformSpawner : MonoBehaviour {
     public GameObject[] platforms;
     [SerializeField] private int platformIndex;
     [SerializeField] private GameObject tileGrid;
+    [SerializeField] private Transform nextPosition;
 
     float timer = 0f;
     #endregion
@@ -16,7 +17,7 @@ public class PlatformSpawner : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
-        if (timer >= 3.5){
+        if (timer >= 4){
             SpawnPlatform();
             timer = 0;
         }
@@ -25,7 +26,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     #region Custom Functions
     void SpawnPlatform() {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 8, transform.position.z);
+        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 8.2f, transform.position.z);
         GameObject go = (GameObject)Instantiate(platforms[platformIndex], pos, Quaternion.identity);
         go.transform.SetParent(tileGrid.transform);
     }
