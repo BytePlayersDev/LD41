@@ -5,6 +5,8 @@ using UnityEngine;
 public class RockGuy : EnemyBase {
     #region Variables
     private Vector2 translation;
+    [SerializeField]private Animator anim;
+    private bool isPatroling = true;
     #endregion
 
     #region Unity Methods
@@ -19,13 +21,16 @@ public class RockGuy : EnemyBase {
         if (secondsToWait == 0) secondsToWait = 2;
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
 	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    private void Update(){
+        anim.SetBool("isPatrolling", isPatroling);
+    }
+    void FixedUpdate () {
         if (Mathf.Abs(Vector2.Distance(waypoints[waypointID].position, transform.position)) < .5f && !samePosition)
         {
             ChangeWaypoint();
             currentState = State.Static;
+            isPatroling = false;
         }
 
         switch (currentState) {
@@ -51,10 +56,11 @@ public class RockGuy : EnemyBase {
         }
     }
 
-    protected IEnumerator Static()
+    new protected IEnumerator Static()
     {
         yield return new WaitForSeconds(secondsToWait);
         currentState = State.Patrol;
+        isPatroling = true;
     }
 
     #endregion
