@@ -442,7 +442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4064
+  m_Text: 0
 --- !u!222 &296229326
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -750,7 +750,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 678192195}
-  scoreController: {fileID: 0}
 --- !u!4 &526280999
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,6 +1233,7 @@ MonoBehaviour:
   speed: 20
   jumpForce: 520
   moveTime: 0.5
+  scoreController: {fileID: 296229325}
 --- !u!1 &704837190
 GameObject:
   m_ObjectHideFlags: 0
