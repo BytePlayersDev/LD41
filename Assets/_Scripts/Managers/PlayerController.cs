@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
     public float jumpForce;
     public float moveTime;
     public float attackDelay = 1f;
-    public float invulnerableTimer = 10.0f;
+    public float invulnerableTimer = 1.0f;
 
     private Rigidbody2D rbPlayer;
     private Vector3 prevPosition;
