@@ -3110,11 +3110,14 @@ MonoBehaviour:
   playerAnimation: {fileID: 1068158511}
   shieldAnimation: {fileID: 1967383640}
   jumpSound: {fileID: 8300000, guid: 684d15710dc1b4749933426f12005847, type: 3}
+  deathSound: {fileID: 8300000, guid: decaf90a0664eeb4980e6e67f81aa1a2, type: 3}
+  attackSound: {fileID: 8300000, guid: decaf90a0664eeb4980e6e67f81aa1a2, type: 3}
   speed: 20
   jumpForce: 520
   moveTime: 0.5
   shieldTime: 5
   attackDelay: 1
+  aSource: {fileID: 0}
   bulletPrf: {fileID: 1097103923197212, guid: 7b4a9d14fffcc69468c3b41c60d3c507, type: 2}
   bulletSpeed: 30
   bulletSpawn: {fileID: 871238444}

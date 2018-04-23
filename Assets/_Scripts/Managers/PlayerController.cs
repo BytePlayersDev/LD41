@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimation;
     public Animator shieldAnimation;
     public AudioClip jumpSound;
+    public AudioClip deathSound;
+    public AudioClip attackSound;
     
     public float speed;
     public float jumpForce;
@@ -18,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     public float attackDelay = 1f;
 
     private Rigidbody2D rbPlayer;
-    private AudioSource aSource;
+    public AudioSource aSource;
     private Vector3 prevPosition;
     private Vector3 nextPosition;
     private bool isMoving;
@@ -173,6 +175,7 @@ public class PlayerController : MonoBehaviour {
     {
         //Check closest enemy to player
         //RaycastHit2D hit = Physics2D.Raycast(this.transform.position, new Vector2(this.transform.localScale.x, 0));
+        aSource.PlayOneShot(attackSound);
         isAttacking = true;
         Shoot();
         StartCoroutine(WaitAttack(attackDelay));
