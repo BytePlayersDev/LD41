@@ -1,55 +1,92 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardDisplay : MonoBehaviour {
 
+    #region Variables
+
     [HideInInspector]public Card Card;
-
-    //Sprite de la carta
-    public Animator NewAnimator;
-    //Nombre de la carta
-    public new string name;
-    //Flag de uso
-    public bool Used;
-    //Acción
     public CardActionEnum.Action Action;
-    [SerializeField] private CardActivated cardActivated;
-    private GameManager gm;
+    public int index;
 
+    private GameManager gm;
+    public DeckList DeckList;
+
+    #endregion
+        
     void Start ()
     {
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
-        cardActivated = GetComponent<CardActivated>();
-        Card = cardActivated.ChooseCard();
-       // gm.StartCoroutine(gm.FirstReRollCard(cardActivated));
-        UpdateCardAtributes();
+        Card = ChooseCard();
 
+        while (!gm.IsCardValid(Card, index))
+            Card = ChooseCard();
+
+        UpdateCardAtributes();
     }
 
-    private void UpdateCardAtributes()
+    #region Custom Functions
+
+    // OnClicked de una Carta
+    public void OnClickedCard()
     {
-        
+        gm.CheckAction(Card.Action, this);
+    }
+
+    // Selecciona una carta en base a las probabilidades establecidas por cada una
+    public Card ChooseCard()
+    {
+        float total = 0;
+        if (DeckList != null)
+        {
+            foreach (Card c in DeckList.Decks)
+            {
+                total += c.probability;
+            }
+        }
+
+        float randomPoint = Random.value * total;
+
+        for (int i = 0; i < DeckList.Decks.Count; i++)
+        {
+            if (randomPoint < DeckList.Decks[i].probability)
+                return DeckList.Decks[i];
+            else
+                randomPoint -= DeckList.Decks[i].probability;
+        }
+
+        return DeckList.Decks[DeckList.Decks.Count - 1];
+    }
+
+    // Elige una carta y actualiza los botones
+    public void ReRollCard()
+    {
+        Card choosedCard = ChooseCard();
+
+        while(!gm.IsCardValid(choosedCard, index))
+            choosedCard = ChooseCard();
+
+        Card = choosedCard;
+        UpdateCardAtributes();
+
+        gm.SwitchButtons(true);
+    }
+
+    // Actualiza los parametros de la carta
+    void UpdateCardAtributes()
+    {
         //Cambiar animaciones
         Animator animator = GetComponent<UnityEngine.Animator>();
-        if(animator!= null)
+        if (animator != null)
         {
             animator.Play("Empty");
-            animator.SetInteger("Action", (int)Card.Action);
-           
+            animator.SetInteger("Action", (int) Card.Action);
         }
-      
-
-        name = Card.name;
-        Used = Card.Used;
+        
         Action = Card.Action;
     }
 
-    public void UpdateCard(Card NewCard)
-    {
-        Card = NewCard;
-        UpdateCardAtributes();
-    }
-
-  
+    #endregion
 }

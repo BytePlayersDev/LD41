@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject player;
-    private PlayerController pc;
+    public int maxEqualCards;
     public GameObject[] cardButtons;
+
+    private CardDisplay[] cardDArray;
+    private PlayerController pc;
 
     #endregion
 
@@ -20,12 +23,12 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         pc = player.GetComponent<PlayerController>();
-        
-        
 	}
 	
-    public void CheckAction(CardActionEnum.Action action, CardActivated cardActivated)
+    public void CheckAction(CardActionEnum.Action action, CardDisplay cardActivated)
     {
+        SwitchButtons(false);
+
         switch (action)
         {
             case CardActionEnum.Action.MoveRight:
@@ -56,67 +59,56 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
-
-
-        StartCoroutine(ReRollCard(cardActivated));//"ReRollCard", cardActivated);        
+        
+        StartCoroutine(ReRollCard(cardActivated));        
     }
 
-    public void Death()
-    {
-        Debug.Log("Player is dead.");
-        GetComponent<UIManager>().ShowGameOver();
-    }
-    public bool CheckIfEqual(CardActivated _cardActivated) {
-        int cont = 0;
+    // Activamos/Desactivamos todos los botones
+    public void SwitchButtons(bool state)
+    {        
         for (int i = 0; i < cardButtons.Length; i++)
         {
-            if (cardButtons[i].GetComponent<CardDisplay>().name.Equals(_cardActivated.GetComponent<CardDisplay>().name)) {
-                cont++;
-            }
-            Debug.Log(cont + " -- " + cardButtons[i].GetComponent<CardDisplay>().name + " ---- " + _cardActivated.GetComponent<CardDisplay>().name);
-            if (cont >= 2)
-            {
-                Debug.Log("ES VERDAD TUUU LOKOOOOOOO");
-                return true;
-            }
-
+            cardButtons[i].GetComponent<Button>().interactable = state;
         }
-        Debug.Log("----------------------------------------------------------------------------------------------------");
-        return false;
     }
+
+    // Muestra la pantalla de fin de juego
+    public void Death()
+    {
+        GetComponent<UIManager>().ShowGameOver();
+    }
+    
+    // Ver cartas y si hay más del limite, hacer ReRoll
+    public bool IsCardValid(Card newCard, int index)
+    {
+        int cardCount = 1;        
+
+        for (int i = 0; i<cardButtons.Length; ++i)
+        {
+            if (i != index) // No miramos nuestra posición
+            {
+                Card auxC = cardButtons[i].GetComponent<CardDisplay>().Card;
+                if (auxC == newCard)
+                    ++cardCount;
+            }
+        }
+
+        return cardCount <= maxEqualCards;
+    }
+
     #endregion
 
     #region Coroutines
 
-    public IEnumerator ReRollCard(CardActivated cardActivated)
+    public IEnumerator ReRollCard(CardDisplay cardDisplay)
     {
-        //while (CheckIfEqual(cardActivated) == true)
-        //{
-        //    Debug.Log("Hay varias Iguales REROOOOOOOLLING IN THE RIVER");
-        //    cardActivated.ReRollCard();
-        //}
         while (pc.GetIsMoving() || pc.GetIsAttacking())
         {
             yield return new WaitForSeconds(0.5f);
         }
-        //if(!CheckIfEqual(cardActivated))
-        cardActivated.ReRollCard();
 
+        cardDisplay.ReRollCard();
     }
-
-    public IEnumerator FirstReRollCard(CardActivated cardActivated)
-    {
-        while (CheckIfEqual(cardActivated) == true)
-        {
-            Debug.Log("Hay varias Iguales REROOOOOOOLLING IN THE RIVER");
-            cardActivated.ReRollCard();
-        }
-        if (CheckIfEqual(cardActivated) == false)
-            cardActivated.ReRollCard();
-        yield return new WaitForSeconds(0);
-
-    }
-
+    
     #endregion
-
 }

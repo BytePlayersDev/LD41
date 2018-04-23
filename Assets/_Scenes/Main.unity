@@ -872,7 +872,6 @@ GameObject:
   - component: {fileID: 514088542}
   - component: {fileID: 514088541}
   - component: {fileID: 514088540}
-  - component: {fileID: 514088544}
   - component: {fileID: 514088543}
   - component: {fileID: 514088545}
   m_Layer: 5
@@ -939,8 +938,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 514088544}
-        m_MethodName: ActiveCard
+      - m_Target: {fileID: 514088543}
+        m_MethodName: OnClickedCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -997,24 +996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 706d623c27dfb43408eceedc9d95589e, type: 2}
-  NewAnimator: {fileID: 0}
-  name: 
-  Used: 0
   Action: 0
-  cardActivated: {fileID: 0}
---- !u!114 &514088544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 514088538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b75acfb8151a34889be61c1159edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 526280998}
-  CardDisplay: {fileID: 514088543}
+  index: 2
   DeckList: {fileID: 526281002}
 --- !u!95 &514088545
 Animator:
@@ -1064,7 +1047,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1068158510}
-  cardButtons: []
+  maxEqualCards: 3
+  cardButtons:
+  - {fileID: 560461906}
+  - {fileID: 965420944}
+  - {fileID: 514088538}
+  - {fileID: 947105846}
+  - {fileID: 1776412945}
 --- !u!4 &526280999
 Transform:
   m_ObjectHideFlags: 0
@@ -1225,7 +1214,6 @@ GameObject:
   - component: {fileID: 560461910}
   - component: {fileID: 560461909}
   - component: {fileID: 560461908}
-  - component: {fileID: 560461912}
   - component: {fileID: 560461911}
   - component: {fileID: 560461913}
   - component: {fileID: 560461914}
@@ -1293,8 +1281,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 560461912}
-        m_MethodName: ActiveCard
+      - m_Target: {fileID: 560461911}
+        m_MethodName: OnClickedCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1351,24 +1339,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 556a9e9a023d23b49b446c09b8df4910, type: 2}
-  NewAnimator: {fileID: 0}
-  name: Right
-  Used: 0
   Action: 0
-  cardActivated: {fileID: 0}
---- !u!114 &560461912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 560461906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b75acfb8151a34889be61c1159edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 526280998}
-  CardDisplay: {fileID: 560461911}
+  index: 0
   DeckList: {fileID: 526281002}
 --- !u!95 &560461913
 Animator:
@@ -1534,7 +1506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 2
+  speed: 0
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -1921,7 +1893,6 @@ GameObject:
   - component: {fileID: 947105850}
   - component: {fileID: 947105849}
   - component: {fileID: 947105848}
-  - component: {fileID: 947105852}
   - component: {fileID: 947105851}
   - component: {fileID: 947105853}
   m_Layer: 5
@@ -1988,8 +1959,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947105852}
-        m_MethodName: ActiveCard
+      - m_Target: {fileID: 947105851}
+        m_MethodName: OnClickedCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2046,24 +2017,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  NewAnimator: {fileID: 0}
-  name: 
-  Used: 0
   Action: 0
-  cardActivated: {fileID: 0}
---- !u!114 &947105852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 947105846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b75acfb8151a34889be61c1159edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 526280998}
-  CardDisplay: {fileID: 947105851}
+  index: 3
   DeckList: {fileID: 526281002}
 --- !u!95 &947105853
 Animator:
@@ -2224,7 +2179,6 @@ GameObject:
   - component: {fileID: 965420947}
   - component: {fileID: 965420946}
   - component: {fileID: 965420950}
-  - component: {fileID: 965420949}
   - component: {fileID: 965420951}
   m_Layer: 5
   m_Name: CardBtn2
@@ -2290,8 +2244,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 965420949}
-        m_MethodName: ActiveCard
+      - m_Target: {fileID: 965420950}
+        m_MethodName: OnClickedCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2336,20 +2290,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965420944}
---- !u!114 &965420949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 965420944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b75acfb8151a34889be61c1159edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 526280998}
-  CardDisplay: {fileID: 965420950}
-  DeckList: {fileID: 526281002}
 --- !u!114 &965420950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2362,11 +2302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  NewAnimator: {fileID: 0}
-  name: 
-  Used: 0
   Action: 0
-  cardActivated: {fileID: 0}
+  index: 1
+  DeckList: {fileID: 526281002}
 --- !u!95 &965420951
 Animator:
   serializedVersion: 3
@@ -2540,13 +2478,13 @@ BoxCollider2D:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1068158510}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.087140046, y: -0.06123364}
+  m_Offset: {x: 0.018815696, y: -0.06123364}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2557,7 +2495,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31701022, y: 0.8775327}
+  m_Size: {x: 0.06648779, y: 0.8775327}
   m_EdgeRadius: 0
 --- !u!50 &1068158515
 Rigidbody2D:
@@ -5358,7 +5296,6 @@ GameObject:
   - component: {fileID: 1776412949}
   - component: {fileID: 1776412948}
   - component: {fileID: 1776412947}
-  - component: {fileID: 1776412951}
   - component: {fileID: 1776412950}
   - component: {fileID: 1776412952}
   m_Layer: 5
@@ -5425,8 +5362,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1776412951}
-        m_MethodName: ActiveCard
+      - m_Target: {fileID: 1776412950}
+        m_MethodName: OnClickedCard
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5483,24 +5420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 11400000, guid: 04b10159f8a68264cac861c4cd8d1220, type: 2}
-  NewAnimator: {fileID: 0}
-  name: 
-  Used: 0
   Action: 0
-  cardActivated: {fileID: 0}
---- !u!114 &1776412951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1776412945}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91b75acfb8151a34889be61c1159edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Game: {fileID: 526280998}
-  CardDisplay: {fileID: 1776412950}
+  index: 4
   DeckList: {fileID: 526281002}
 --- !u!95 &1776412952
 Animator:
