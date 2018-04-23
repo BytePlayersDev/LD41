@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour {
                 {
 
                     //Generar movimiento random
-                    int randomnumber = Random.Range(1, 6);
+                    int randomnumber = Random.Range(1,7);
+                    
                     switch (randomnumber){
                         case 1:
                             {
