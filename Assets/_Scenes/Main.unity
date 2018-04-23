@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 0
+  speed: 1
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -4937,6 +4937,7 @@ MonoBehaviour:
   platformIndex: 0
   tileGrid: {fileID: 410024014}
   nextPosition: {fileID: 0}
+  maxCapacity: 7
 --- !u!1 &1776412945
 GameObject:
   m_ObjectHideFlags: 0

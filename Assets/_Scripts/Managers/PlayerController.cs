@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     private bool isMoving;
     private bool isAttacking;
     private bool isJumping;
+    private bool facingRight = false;
 
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
@@ -164,6 +165,9 @@ public class PlayerController : MonoBehaviour {
     private void Shoot() {
 
         var bullet = (GameObject)Instantiate(bulletPrf, bulletSpawn.position, bulletSpawn.rotation);
+        //bullet.transform.localScale = new Vector2(-1 * transform.localScale.x, transform.localScale.y);
+        if(facingRight)
+            bullet.GetComponentInChildren<SpriteRenderer>().flipX = true;
         bullet.transform.SetParent(bulletParent);
         bullet.GetComponent<Rigidbody2D>().AddForce(new Vector2(1 * transform.localScale.x,0) * bulletSpeed * 10);
 
@@ -186,7 +190,7 @@ public class PlayerController : MonoBehaviour {
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         transform.transform.GetChild(0).localScale = new Vector2(transform.transform.GetChild(0).transform.localScale.x * -1, transform.transform.GetChild(0).transform.localScale.y);
-
+        facingRight = !facingRight;
         direction *= -1;
     }
 
