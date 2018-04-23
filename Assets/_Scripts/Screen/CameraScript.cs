@@ -6,26 +6,35 @@ public class CameraScript : MonoBehaviour {
 
     public GameObject GameManager;
     public float speed;
+    private float baseSpeed;
+    public float speedFactor;
     private bool isGamePaused = false;
 
     private bool isAlive = true;
-
-	// Update is called once per frame
-	void Update ()
+    [SerializeField] Transform playerCheck;
+    public Transform player;
+    // Update is called once per frame
+    private void Start()
+    {
+        baseSpeed = speed;
+    }
+    void Update ()
     {
         if (isGamePaused)
             return;
-        if (isAlive) this.transform.position += Vector3.up * speed / 100; 
+        if (isAlive) this.transform.position += Vector3.up * speed / 100;
+        if (player.position.y >= playerCheck.position.y)
+        {
+            speed *= speedFactor;
+        }
+        else {
+            if (speed != baseSpeed)
+                speed = baseSpeed;
+        }
+        
 	}
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //isAlive = false;
-            //GameManager.GetComponent<GameManager>().Death();
-        }
-    }
+
 
     public void SetGamePaused(bool _gamePaused) {
         isGamePaused = _gamePaused;

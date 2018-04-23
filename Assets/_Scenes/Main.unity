@@ -1564,6 +1564,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 440943261}
+--- !u!1 &451006521
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 451006522}
+  m_Layer: 0
+  m_Name: playerCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &451006522
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451006521}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 603441388}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490504135
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2291,7 @@ Transform:
   - {fileID: 1722249864}
   - {fileID: 436923994}
   - {fileID: 1976905274}
+  - {fileID: 451006522}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2279,6 +2308,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
   speed: 2
+  speedFactor: 1.05
+  playerCheck: {fileID: 451006522}
+  player: {fileID: 344735191}
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -6412,11 +6444,18 @@ MonoBehaviour:
   tileGrid: {fileID: 410024015}
   lastPlatform: {fileID: 315328981}
   platformsPrfs:
-  - {fileID: 1273947662967310, guid: 4216c99bb78f3fe49902cb209a1789d1, type: 2}
-  - {fileID: 1037497991629786, guid: 484d38f7e80335b49883abfd768ecbb7, type: 2}
-  - {fileID: 1204277598523720, guid: a2c8f5b28cde6a74086abc36f8fe6539, type: 2}
-  - {fileID: 1077861415258760, guid: 5e614daf50927394baea54165935773d, type: 2}
-  - {fileID: 1110413371388252, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
+  - {fileID: 1000630096718962, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
+  - {fileID: 1535669496202276, guid: 30198ce96e02d4e48b3668f16fd8591c, type: 2}
+  - {fileID: 1645940920206420, guid: 5e614daf50927394baea54165935773d, type: 2}
+  - {fileID: 1141165426826584, guid: 4fa76f130fc9ff74bb4d0ac3f40c70f5, type: 2}
+  - {fileID: 1839803555693730, guid: a2c8f5b28cde6a74086abc36f8fe6539, type: 2}
+  - {fileID: 1340687543331424, guid: 5f11cd49312f9864d83387deea513b54, type: 2}
+  - {fileID: 1096826223025510, guid: 484d38f7e80335b49883abfd768ecbb7, type: 2}
+  - {fileID: 1828907701951716, guid: 4d6414c3395a12d4ba36962e6f915847, type: 2}
+  - {fileID: 1081671656669986, guid: 4216c99bb78f3fe49902cb209a1789d1, type: 2}
+  - {fileID: 1534621087749116, guid: a9d62061fa0d2104b995a470a40ef17e, type: 2}
+  - {fileID: 1177371805570632, guid: 99b9f6d4e54ca0546b05198ec9796bd5, type: 2}
+  - {fileID: 1611101686910570, guid: 80f7764176f273f43adc3aaf1a1b912a, type: 2}
   platformIndex: 0
   delayBetweenGenerations: 3.5
   distanceOfGeneration: 5
