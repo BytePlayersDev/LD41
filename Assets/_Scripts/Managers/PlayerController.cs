@@ -192,6 +192,7 @@ public class PlayerController : MonoBehaviour {
         transform.transform.GetChild(0).localScale = new Vector2(transform.transform.GetChild(0).transform.localScale.x * -1, transform.transform.GetChild(0).transform.localScale.y);
         facingRight = !facingRight;
         direction *= -1;
+        ScorePlayer.transform.localScale = new Vector3(ScorePlayer.transform.localScale.x * -1, ScorePlayer.transform.localScale.y, ScorePlayer.transform.localScale.z);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
