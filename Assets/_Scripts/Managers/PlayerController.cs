@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour {
     public AudioClip jumpSound;
     public AudioClip deathSound;
     public AudioClip attackSound;
-    
+
+    public float score;
     public float speed;
     public float jumpForce;
     public float moveTime;
@@ -259,13 +260,13 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void showAndCalculatedPlayerScore(int score)
+    public void showAndCalculatedPlayerScore(int addedScore)
     {
         TextMesh TextMesh = ScorePlayer.GetComponent<TextMesh>();
         if (TextMesh != null)
         {
 
-            TextMesh.text = score.ToString();
+            TextMesh.text = addedScore.ToString();
             //activar la animacion
             TextMesh.GetComponent<Animator>().enabled = true;
             TextMesh.GetComponent<Animator>().Play("ScoreTextPlayerAnimation", -1, 0f);
@@ -273,7 +274,8 @@ public class PlayerController : MonoBehaviour {
         //Aumentar score canvas
         if (ScorePlayerCanvas != null)
         {
-            ScorePlayerCanvas.text = (int.Parse(ScorePlayerCanvas.text) + score).ToString();
+            ScorePlayerCanvas.text = (int.Parse(ScorePlayerCanvas.text) + addedScore).ToString();
+            score = (int.Parse(ScorePlayerCanvas.text) + addedScore);
         }
     }
 

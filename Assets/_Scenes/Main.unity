@@ -1887,6 +1887,10 @@ MonoBehaviour:
   speedFactor: 1.05
   playerCheck: {fileID: 451006522}
   player: {fileID: 344735191}
+  firstLevelSpeed: 250
+  secondLevelSpeed: 500
+  thirdLevelSpeed: 750
+  increment: 2
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -3112,6 +3116,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 684d15710dc1b4749933426f12005847, type: 3}
   deathSound: {fileID: 8300000, guid: 7430d7a177e3aee4e89758e916e98f2b, type: 3}
   attackSound: {fileID: 8300000, guid: decaf90a0664eeb4980e6e67f81aa1a2, type: 3}
+  score: 0
   speed: 20
   jumpForce: 520
   moveTime: 0.5
