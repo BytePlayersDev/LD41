@@ -1440,6 +1440,9 @@ MonoBehaviour:
   newDistanceOfGeneration: 4
   newDelayOfGenerations: 3
   clouds: []
+  mountainZone: 0
+  skyZone: 0
+  spaceZone: 0
 --- !u!61 &436923996
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1616,7 +1619,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 490504135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.005, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 344735191}
@@ -1646,7 +1649,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.03257467, y: -0.4631824}
+  m_Offset: {x: 0.03257467, y: -0.43}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1657,7 +1660,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3112782, y: 0.17663944}
+  m_Size: {x: 0.01, y: 0.15}
   m_EdgeRadius: 0
 --- !u!1 &514088538
 GameObject:
@@ -6443,7 +6446,8 @@ MonoBehaviour:
   maxCapacity: 10
   tileGrid: {fileID: 410024015}
   lastPlatform: {fileID: 315328981}
-  platformsPrfs:
+  generator: {fileID: 1976905275}
+  platformsMountainPrfs:
   - {fileID: 1605697489262836, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
   - {fileID: 1535669496202276, guid: 30198ce96e02d4e48b3668f16fd8591c, type: 2}
   - {fileID: 1213210077278364, guid: 5e614daf50927394baea54165935773d, type: 2}
@@ -6456,6 +6460,32 @@ MonoBehaviour:
   - {fileID: 1534621087749116, guid: a9d62061fa0d2104b995a470a40ef17e, type: 2}
   - {fileID: 1177371805570632, guid: 99b9f6d4e54ca0546b05198ec9796bd5, type: 2}
   - {fileID: 1611101686910570, guid: 80f7764176f273f43adc3aaf1a1b912a, type: 2}
+  platformsSkyPrfs:
+  - {fileID: 1605697489262836, guid: 27a21e7699278e04b9aa22c936529c1c, type: 2}
+  - {fileID: 1535669496202276, guid: 7445671dd10df1f448af132963b4229b, type: 2}
+  - {fileID: 1213210077278364, guid: ec9c696c287267f489316f0a239f0ac8, type: 2}
+  - {fileID: 1141165426826584, guid: 3c81ab44b0217384b9af5bd3bd9bdbbb, type: 2}
+  - {fileID: 1696426257061892, guid: 03b75a1133ecb9d4399498a4c82bfffa, type: 2}
+  - {fileID: 1340687543331424, guid: 6cef5e0316a59df48bb37f21a643c7bf, type: 2}
+  - {fileID: 1746703081824000, guid: d5b6e2344cc59594aa85972148149da0, type: 2}
+  - {fileID: 1828907701951716, guid: e6378b37d61457f47b6826325e3a5bbd, type: 2}
+  - {fileID: 1389629078791346, guid: 6c998df8fd7cc9c458b0cd67831b0f91, type: 2}
+  - {fileID: 1534621087749116, guid: 6ed12cdb806a3d54fba060ad9f928064, type: 2}
+  - {fileID: 1177371805570632, guid: a4e3523b94b76e848871acabc07a4cb1, type: 2}
+  - {fileID: 1611101686910570, guid: 1eb497b5ef22ec340810461a5f230d77, type: 2}
+  platformsSpacePrfs:
+  - {fileID: 1605697489262836, guid: 4ece15e105ce4884ba904fec2e0aa739, type: 2}
+  - {fileID: 1535669496202276, guid: d0c2a2a6c3de5f44a8f6d54baba7e668, type: 2}
+  - {fileID: 1213210077278364, guid: eebca0228ec15514d9fe86f90cd626f1, type: 2}
+  - {fileID: 1141165426826584, guid: ede642116e81f07498da95e87bfdbd02, type: 2}
+  - {fileID: 1696426257061892, guid: 64c39134d611d1e40914479eb91e8ddf, type: 2}
+  - {fileID: 1340687543331424, guid: e4b5696748f8b8541a538acb3ed66ec9, type: 2}
+  - {fileID: 1746703081824000, guid: 01e79a749f555854f8e2b5c0956c8142, type: 2}
+  - {fileID: 1828907701951716, guid: 93bd754ea3af3e946b8d020c9825cab0, type: 2}
+  - {fileID: 1389629078791346, guid: 7ef4e6d3dfb3e744489ee5f19c49a877, type: 2}
+  - {fileID: 1534621087749116, guid: 157ad3a519b52c64bb7cb5b188e27297, type: 2}
+  - {fileID: 1177371805570632, guid: c4979b6a5d51d914b8b7974463d82279, type: 2}
+  - {fileID: 1611101686910570, guid: 7555be14f388e5a40a84df228878dfd0, type: 2}
   platformIndex: 0
   delayBetweenGenerations: 3.5
   distanceOfGeneration: 5
@@ -7963,6 +7993,9 @@ MonoBehaviour:
   - {fileID: 1931465403353830, guid: b999110419240974c8957039f8ec8c95, type: 2}
   - {fileID: 1456861141127814, guid: 6635f44f199d9c948aaf233512cd0eb4, type: 2}
   - {fileID: 1571429201422642, guid: c30f78acbdb525b42bedf5e021a2d63c, type: 2}
+  mountainZone: 0
+  skyZone: 0
+  spaceZone: 0
 --- !u!61 &1976905276
 BoxCollider2D:
   m_ObjectHideFlags: 0

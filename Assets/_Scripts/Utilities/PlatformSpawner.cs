@@ -10,7 +10,10 @@ public class PlatformSpawner : MonoBehaviour {
     [SerializeField] private int maxCapacity = 3;
     [SerializeField] private Grid tileGrid;
     [SerializeField] private GameObject lastPlatform;
-    public GameObject[] platformsPrfs;
+    [SerializeField] private ObjectGenerator generator;
+    public GameObject[] platformsMountainPrfs;
+    public GameObject[] platformsSkyPrfs;
+    public GameObject[] platformsSpacePrfs;
     [SerializeField] private int platformIndex;
     public float delayBetweenGenerations = 6;
     public float distanceOfGeneration = 5f;
@@ -36,16 +39,21 @@ public class PlatformSpawner : MonoBehaviour {
     {
         Debug.Log(collision.name);
         if (collision.gameObject.tag == "Waypoint") {
-            SpawnPlatform();
+            if (generator.mountainZone)
+                SpawnPlatform(platformsMountainPrfs);
+            else if (generator.skyZone)
+                SpawnPlatform(platformsSkyPrfs);
+            else
+                SpawnPlatform(platformsSpacePrfs);
         }
     }
 
 
     #region Custom Functions
-    void SpawnPlatform() {
+    void SpawnPlatform(GameObject[] platformType) {
         Vector3 pos = new Vector3(lastPlatform.transform.position.x, lastPlatform.transform.position.y + distanceOfGeneration, lastPlatform.transform.position.z);
-        RandomIndex();
-        GameObject go = (GameObject)Instantiate(platformsPrfs[platformIndex], pos, Quaternion.identity);
+        RandomIndex(platformType);
+        GameObject go = (GameObject)Instantiate(platformType[platformIndex], pos, Quaternion.identity);
         go.transform.SetParent(tileGrid.transform);
         platformPool.Enqueue(go);
         lastPlatform = go;
@@ -59,8 +67,8 @@ public class PlatformSpawner : MonoBehaviour {
         }
         
     }
-    void RandomIndex() {
-        platformIndex = Random.Range(0, platformsPrfs.Length);
+    void RandomIndex(GameObject[] platformType) {
+        platformIndex = Random.Range(0, platformType.Length);
     }
 
 

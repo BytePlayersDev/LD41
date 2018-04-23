@@ -22,12 +22,18 @@ public class ObjectGenerator : MonoBehaviour {
     public float newDelayOfGenerations;
     [SerializeField] GameObject[] clouds;
     private int randomIndex;
-    
+
+    public bool mountainZone;
+    public bool skyZone;
+    public bool spaceZone;
 
     private float timer = 0;
 	// Use this for initialization
 	void Start () {
         listOfObjects = new Queue<GameObject>();
+        mountainZone = true;
+        skyZone = false;
+        spaceZone = false;
 	}
 
     // Update is called once per frame
@@ -59,6 +65,12 @@ public class ObjectGenerator : MonoBehaviour {
             go = (GameObject)Instantiate(specialPrefab, pos, Quaternion.identity);
             generateClouds(go);
             specialPrefabPlaced = true;
+            if (skyZone == false)
+            {
+                mountainZone = false;
+                skyZone = true;
+                spaceZone = false;
+            }
         }
         else if (specialPrefabPlaced == true)
         {
@@ -68,6 +80,11 @@ public class ObjectGenerator : MonoBehaviour {
             delayBetweenGenerations = newDelayOfGenerations;
         }
         else {
+            if (mountainZone == false) {
+                mountainZone = true;
+                skyZone = false;
+                spaceZone = false;
+            }
             go = (GameObject)Instantiate(objectPrefab, pos, Quaternion.identity);
             delayBetweenGenerations = newDelayOfGenerations;
 
