@@ -15,4 +15,6 @@ public class Card :ScriptableObject {
     //probability
     public float probability;
 
+    public float timer;
+
 }

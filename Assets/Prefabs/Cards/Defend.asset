@@ -11,9 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30cb7e59f6a55f40bfe551edf79bf26, type: 3}
   m_Name: Defend
   m_EditorClassIdentifier: 
-  Animation: {fileID: 7400000, guid: bc8e138d5c69e1246b0157fe471d249e, type: 2}
-  Animator: {fileID: 9100000, guid: 2cdf8e1787e65cc42bdaa57471fd70bc, type: 2}
   name: Defend
   Used: 0
   Action: 4
   probability: 0.05
+  timer: 0.5
