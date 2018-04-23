@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour {
     public Animator playerAnimation;
     public Animator shieldAnimation;
     public AudioClip jumpSound;
+    public AudioClip deathSound;
     
     public float speed;
     public float jumpForce;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     public float attackDelay = 1f;
 
     private Rigidbody2D rbPlayer;
-    private AudioSource aSource;
+    public AudioSource aSource;
     private Vector3 prevPosition;
     private Vector3 nextPosition;
     private bool isMoving;

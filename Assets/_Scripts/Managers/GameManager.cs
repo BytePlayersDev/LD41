@@ -116,8 +116,10 @@ public class GameManager : MonoBehaviour {
     public void Death()
     {
         GetComponent<UIManager>().ShowGameOver();
+        pc.aSource.PlayOneShot(pc.deathSound);
+
     }
-    
+
     // Ver cartas y si hay más del limite, hacer ReRoll
     public bool IsCardValid(Card newCard, int index)
     {
