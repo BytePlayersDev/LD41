@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     private Vector3 nextPosition;
     private bool isMoving;
     private bool isAttacking;
-    private bool isJumping;
+    private bool isJumping = false;
     private bool facingRight = false;
 
     private int direction;
@@ -207,6 +207,12 @@ public class PlayerController : MonoBehaviour {
             gameManager.Death();
         }
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Platfomr") {
+    //        isJumping = false;
+    //    }
+    //}
 
     void OnTriggerExit2D(Collider2D collision)
     {

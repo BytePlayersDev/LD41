@@ -12,6 +12,8 @@ public class PlatformSpawner : MonoBehaviour {
     [SerializeField] private GameObject lastPlatform;
     public GameObject[] platformsPrfs;
     [SerializeField] private int platformIndex;
+    public int delayBetweenGenerations = 6;
+    public float distanceOfGeneration = 5f;
 
     float timer = 0f;
     #endregion
@@ -24,7 +26,8 @@ public class PlatformSpawner : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
-        if (timer >= 6){
+        if (timer >= delayBetweenGenerations)
+        {
             SpawnPlatform();
             timer = 0;
         }
@@ -33,7 +36,7 @@ public class PlatformSpawner : MonoBehaviour {
 
     #region Custom Functions
     void SpawnPlatform() {
-        Vector3 pos = new Vector3(lastPlatform.transform.position.x, lastPlatform.transform.position.y + 5f, lastPlatform.transform.position.z);
+        Vector3 pos = new Vector3(lastPlatform.transform.position.x, lastPlatform.transform.position.y + distanceOfGeneration, lastPlatform.transform.position.z);
         GameObject go = (GameObject)Instantiate(platformsPrfs[platformIndex], pos, Quaternion.identity);
         go.transform.SetParent(tileGrid.transform);
         platformPool.Enqueue(go);
