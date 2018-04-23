@@ -1013,7 +1013,7 @@ Animator:
   m_GameObject: {fileID: 514088538}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dfee3e7cf182bf4419842f8d11426c43, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1367,7 +1367,7 @@ Animator:
   m_GameObject: {fileID: 560461906}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f1a4f1f16e66774a90374ddb10a4630, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1521,7 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 1
+  speed: 0
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
@@ -2019,7 +2019,7 @@ Animator:
   m_GameObject: {fileID: 947105846}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 07adbfb92a7401d4c9f9bfdd489210b1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2321,7 +2321,7 @@ Animator:
   m_GameObject: {fileID: 965420944}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5808d054a17bb394d9ff1156a788d2a3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5412,7 +5412,7 @@ Animator:
   m_GameObject: {fileID: 1776412945}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 000d8a38be0ea1449a2d16df936d33ac, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

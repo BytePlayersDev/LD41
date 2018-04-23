@@ -32,7 +32,12 @@ public class CardDisplay : MonoBehaviour {
         
         //Cambiar animaciones
         Animator animator = GetComponent<UnityEngine.Animator>();
-        animator.runtimeAnimatorController = Card.Animator;
+        if(animator!= null)
+        {
+            animator.Play("Empty");
+            animator.SetInteger("Action", (int)Card.Action);
+           
+        }
       
 
         name = Card.name;

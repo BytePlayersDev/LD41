@@ -7,11 +7,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Card", menuName = "Card")]
 public class Card :ScriptableObject {
 
-    //Sprite de la carta
-    public AnimationClip Animation;
-
-    //Sprite de la carta
-    public AnimatorController Animator;
     //Nombre de la carta
     public new string name;
     //Flag de uso
