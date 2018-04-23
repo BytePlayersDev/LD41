@@ -168,7 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4910013658785596}
   m_Layer: 0
-  m_Name: 2_MSolid 1
+  m_Name: 3_MEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

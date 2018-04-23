@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4047465854369420}
   m_Layer: 0
-  m_Name: 6_MSolid
+  m_Name: 3_MSolid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -150,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4547687517985314}
   m_Layer: 0
-  m_Name: 03_MountainPlain
+  m_Name: 2_MEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

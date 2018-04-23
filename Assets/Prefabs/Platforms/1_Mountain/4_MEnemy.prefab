@@ -72,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4125383917676848}
   m_Layer: 0
-  m_Name: 3_MSolid 1
+  m_Name: 4_MEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

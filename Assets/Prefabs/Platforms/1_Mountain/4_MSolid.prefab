@@ -104,7 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4842819628155882}
   m_Layer: 0
-  m_Name: 7_MSolid
+  m_Name: 4_MSolid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
