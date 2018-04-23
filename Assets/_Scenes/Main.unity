@@ -952,8 +952,8 @@ Transform:
   m_Children:
   - {fileID: 1784570017}
   - {fileID: 631619445}
-  - {fileID: 765313758}
   - {fileID: 1479646390}
+  - {fileID: 765313758}
   - {fileID: 1321812521}
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -2353,7 +2353,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4842819628155882, guid: 4d6414c3395a12d4ba36962e6f915847, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 66126618609568640, guid: 4d6414c3395a12d4ba36962e6f915847,
         type: 2}
@@ -4292,7 +4292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4203997244769676, guid: 80f7764176f273f43adc3aaf1a1b912a, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 66306725041369896, guid: 80f7764176f273f43adc3aaf1a1b912a,
         type: 2}
@@ -4844,7 +4844,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4766605864853826, guid: 99b9f6d4e54ca0546b05198ec9796bd5, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 66805557665718972, guid: 99b9f6d4e54ca0546b05198ec9796bd5,
         type: 2}
@@ -6478,8 +6478,6 @@ MonoBehaviour:
   lastPlatform: {fileID: 1321812520}
   generator: {fileID: 1976905275}
   platformsMountainPrfs:
-  - {fileID: 1605697489262836, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
-  - {fileID: 1535669496202276, guid: 30198ce96e02d4e48b3668f16fd8591c, type: 2}
   - {fileID: 1213210077278364, guid: 5e614daf50927394baea54165935773d, type: 2}
   - {fileID: 1141165426826584, guid: 4fa76f130fc9ff74bb4d0ac3f40c70f5, type: 2}
   - {fileID: 1696426257061892, guid: a2c8f5b28cde6a74086abc36f8fe6539, type: 2}
@@ -6491,8 +6489,6 @@ MonoBehaviour:
   - {fileID: 1177371805570632, guid: 99b9f6d4e54ca0546b05198ec9796bd5, type: 2}
   - {fileID: 1611101686910570, guid: 80f7764176f273f43adc3aaf1a1b912a, type: 2}
   platformsSkyPrfs:
-  - {fileID: 1605697489262836, guid: 27a21e7699278e04b9aa22c936529c1c, type: 2}
-  - {fileID: 1535669496202276, guid: 7445671dd10df1f448af132963b4229b, type: 2}
   - {fileID: 1213210077278364, guid: ec9c696c287267f489316f0a239f0ac8, type: 2}
   - {fileID: 1141165426826584, guid: 3c81ab44b0217384b9af5bd3bd9bdbbb, type: 2}
   - {fileID: 1696426257061892, guid: 03b75a1133ecb9d4399498a4c82bfffa, type: 2}
@@ -6504,8 +6500,6 @@ MonoBehaviour:
   - {fileID: 1177371805570632, guid: a4e3523b94b76e848871acabc07a4cb1, type: 2}
   - {fileID: 1611101686910570, guid: 1eb497b5ef22ec340810461a5f230d77, type: 2}
   platformsSpacePrfs:
-  - {fileID: 1605697489262836, guid: 4ece15e105ce4884ba904fec2e0aa739, type: 2}
-  - {fileID: 1535669496202276, guid: d0c2a2a6c3de5f44a8f6d54baba7e668, type: 2}
   - {fileID: 1213210077278364, guid: eebca0228ec15514d9fe86f90cd626f1, type: 2}
   - {fileID: 1141165426826584, guid: ede642116e81f07498da95e87bfdbd02, type: 2}
   - {fileID: 1696426257061892, guid: 64c39134d611d1e40914479eb91e8ddf, type: 2}
