@@ -781,8 +781,8 @@ MonoBehaviour:
   specialPrefab: {fileID: 0}
   specialPrefabGenerationHeight: 0
   nextPrefab: {fileID: 0}
-  newDistanceOfGeneration: 0
-  newDelayOfGenerations: 0
+  newDistanceOfGeneration: 4
+  newDelayOfGenerations: 3
   clouds: []
 --- !u!4 &440533151 stripped
 Transform:
@@ -1508,7 +1508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 0
+  speed: 2
 --- !u!50 &603441391
 Rigidbody2D:
   serializedVersion: 4
