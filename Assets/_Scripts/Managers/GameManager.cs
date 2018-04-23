@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	
     public void CheckAction(CardActionEnum.Action action, CardDisplay cardActivated)
     {
-        StartCoroutine(SwitchButtonsTimer());
+        StartCoroutine(SwitchButtonsTimer(cardActivated));
 
         switch (action)
         {
@@ -100,18 +100,18 @@ public class GameManager : MonoBehaviour {
 
     public IEnumerator ReRollCard(CardDisplay cardDisplay)
     {
-        while (pc.GetIsMoving() || pc.GetIsAttacking() || pc.GetIsJumping())
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
+        //while (pc.GetIsMoving() || pc.GetIsAttacking() || pc.GetIsJumping())
+        //{
+        yield return new WaitForSeconds(cardDisplay.Card.timer);
+        //}
 
         cardDisplay.ReRollCard();
     }
 
-    IEnumerator SwitchButtonsTimer()
+    IEnumerator SwitchButtonsTimer(CardDisplay cardDisplay)
     {
         SwitchButtons(false);
-        yield return new WaitForSeconds(secondsCardDelay);
+        yield return new WaitForSeconds(cardDisplay.Card.timer);
         SwitchButtons(true);
     }
 
