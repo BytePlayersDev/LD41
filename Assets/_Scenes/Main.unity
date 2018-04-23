@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 2
+  speed: 0
   speedFactor: 1.05
   playerCheck: {fileID: 451006522}
   player: {fileID: 344735191}
@@ -3218,7 +3218,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.021146476, y: -0.06123364}
+  m_Offset: {x: 0, y: -0.06123364}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
