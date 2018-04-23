@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour {
         //Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
         Debug.DrawRay(rayOriginPosition, new Vector2(-transform.localScale.x, 0) * raycastViewRange, Color.blue);
 
-        if (!isInvulnerable)
+        if (!isInvulnerable) //FIXME: Check if Enemy is in the same position or close to it.
         {
             DetectEnemyBack();
         }
