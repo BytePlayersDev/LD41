@@ -80,7 +80,7 @@ public class ObjectGenerator : MonoBehaviour {
         for (int i = 0; i < numOfClouds; i++)
         {
             int randomIndex = GenerateRandomInt(0, clouds.Length);
-            Vector3 cloudPos = new Vector3(GenerateRandomInt(-5, 5) + GenerateRandomInt(-30, -10), go.transform.position.y + GenerateRandomInt(-30, -10), go.transform.position.y);
+            Vector3 cloudPos = new Vector3(-12, go.transform.position.y + GenerateRandomInt(-30, -10), go.transform.position.y);
             GameObject cloud = (GameObject)Instantiate(clouds[randomIndex], cloudPos, Quaternion.identity);
             cloud.transform.SetParent(go.transform);
         }
