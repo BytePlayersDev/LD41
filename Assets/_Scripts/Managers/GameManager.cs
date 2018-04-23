@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private GameObject player;
     public int maxEqualCards;
+    public float secondsCardDelay;
     public GameObject[] cardButtons;
 
     private CardDisplay[] cardDArray;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour {
 	
     public void CheckAction(CardActionEnum.Action action, CardDisplay cardActivated)
     {
-        SwitchButtons(false);
+        StartCoroutine(SwitchButtonsTimer());
 
         switch (action)
         {
@@ -86,11 +87,8 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i<cardButtons.Length; ++i)
         {
             if (i != index) // No miramos nuestra posición
-            {
-                Card auxC = cardButtons[i].GetComponent<CardDisplay>().Card;
-                if (auxC == newCard)
+                if (cardButtons[i].GetComponent<CardDisplay>().Card == newCard)
                     ++cardCount;
-            }
         }
 
         return cardCount <= maxEqualCards;
@@ -102,13 +100,20 @@ public class GameManager : MonoBehaviour {
 
     public IEnumerator ReRollCard(CardDisplay cardDisplay)
     {
-        while (pc.GetIsMoving() || pc.GetIsAttacking())
+        while (pc.GetIsMoving() || pc.GetIsAttacking() || pc.GetIsJumping())
         {
             yield return new WaitForSeconds(0.5f);
         }
 
         cardDisplay.ReRollCard();
     }
-    
+
+    IEnumerator SwitchButtonsTimer()
+    {
+        SwitchButtons(false);
+        yield return new WaitForSeconds(secondsCardDelay);
+        SwitchButtons(true);
+    }
+
     #endregion
 }

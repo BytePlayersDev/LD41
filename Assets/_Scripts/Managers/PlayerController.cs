@@ -87,6 +87,21 @@ public class PlayerController : MonoBehaviour {
         return isAttacking;
     }
 
+    public bool GetIsJumping()
+    {
+        return isJumping;
+    }
+
+    public void SetIsMoving(bool state)
+    {
+        isMoving = state;
+    }
+
+    public void SetIsJumping(bool state)
+    {
+        isJumping = state;
+    }
+
     private void DetectEnemyBack() {
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
         RaycastHit2D hit = Physics2D.Raycast(rayOriginPosition, new Vector2(-transform.localScale.x, 0));
@@ -138,7 +153,6 @@ public class PlayerController : MonoBehaviour {
     public bool Jump()
     {
         isMoving = true;
-        isJumping = true;
 
         rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
         rbPlayer.AddForce(new Vector2(0f, jumpForce));
@@ -201,19 +215,20 @@ public class PlayerController : MonoBehaviour {
         {
             rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
             isMoving = false;
-            isJumping = false;
         }
         if (collision.gameObject.tag == "DeathCollider")
         {
             gameManager.Death();
         }
     }
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Platfomr") {
-    //        isJumping = false;
-    //    }
-    //}
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Waypoint" && !isMoving)
+        {
+            rbPlayer.velocity = new Vector2(0, rbPlayer.velocity.y);
+        }
+    }
 
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -223,6 +238,7 @@ public class PlayerController : MonoBehaviour {
             showAndCalculatedPlayerScore(20);
         }
     }
+
     public void showAndCalculatedPlayerScore(int score)
     {
         TextMesh TextMesh = ScorePlayer.GetComponent<TextMesh>();

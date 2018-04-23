@@ -70,8 +70,6 @@ public class CardDisplay : MonoBehaviour {
 
         Card = choosedCard;
         UpdateCardAtributes();
-
-        gm.SwitchButtons(true);
     }
 
     // Actualiza los parametros de la carta
