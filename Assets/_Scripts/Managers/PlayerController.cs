@@ -7,14 +7,15 @@ public class PlayerController : MonoBehaviour {
 
     #region Variables
     private GameManager gameManager;
-    public Animator anim;
+    public Animator playerAnimation;
+    public Animator shieldAnimation;
     public AudioClip jumpSound;
     
     public float speed;
     public float jumpForce;
     public float moveTime;
+    public float shieldTime;
     public float attackDelay = 1f;
-    public float invulnerableTimer = 1.0f;
 
     private Rigidbody2D rbPlayer;
     private AudioSource aSource;
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private bool isAttacking;
     private bool isJumping = false;
     private bool facingRight = false;
+    private int shieldPercentage = 0;
 
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
@@ -62,9 +64,10 @@ public class PlayerController : MonoBehaviour {
     }
     public void Update()
     {
-        anim.SetFloat("speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
-        anim.SetBool("isJumping", isJumping);
-        anim.SetBool("isAttacking", isAttacking);
+        playerAnimation.SetFloat("speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+        playerAnimation.SetBool("isJumping", isJumping);
+        playerAnimation.SetBool("isAttacking", isAttacking);
+        shieldAnimation.SetFloat("porcentaje", shieldPercentage);
 
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
         //Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
@@ -193,7 +196,7 @@ public class PlayerController : MonoBehaviour {
     /// <returns></returns>
     public bool Defend()
     {
-        StartCoroutine(ShieldTimer(invulnerableTimer));
+        StartCoroutine(ShieldTimer());
         return true;
     }
 
@@ -280,7 +283,10 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     /// <param name="seconds"></param>
     /// <returns></returns>
-    IEnumerator ShieldTimer(float seconds) {
+    IEnumerator ShieldTimer()
+    {
+        float fixedShield = shieldTime / 12;
+
         isInvulnerable = true;
         if(Shield != null)
         {
@@ -288,7 +294,12 @@ public class PlayerController : MonoBehaviour {
         }
         showAndCalculatedPlayerScore(10);
         Physics2D.IgnoreLayerCollision(2, 8, true);
-        yield return new WaitForSeconds(seconds);
+        for (int i = 13; i > 0; --i)
+        {
+            shieldPercentage = i;
+            yield return new WaitForSeconds(fixedShield);
+        }
+
         isInvulnerable = false;
         if (Shield != null)
         {
