@@ -37,6 +37,7 @@ public class PlatformSpawner : MonoBehaviour {
     #region Custom Functions
     void SpawnPlatform() {
         Vector3 pos = new Vector3(lastPlatform.transform.position.x, lastPlatform.transform.position.y + distanceOfGeneration, lastPlatform.transform.position.z);
+        RandomIndex();
         GameObject go = (GameObject)Instantiate(platformsPrfs[platformIndex], pos, Quaternion.identity);
         go.transform.SetParent(tileGrid.transform);
         platformPool.Enqueue(go);
