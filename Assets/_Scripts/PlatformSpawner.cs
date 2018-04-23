@@ -12,7 +12,7 @@ public class PlatformSpawner : MonoBehaviour {
     [SerializeField] private GameObject lastPlatform;
     public GameObject[] platformsPrfs;
     [SerializeField] private int platformIndex;
-    public int delayBetweenGenerations = 6;
+    public float delayBetweenGenerations = 6;
     public float distanceOfGeneration = 5f;
 
     float timer = 0f;

@@ -776,12 +776,14 @@ MonoBehaviour:
   lastObjectGenerated: {fileID: 807060564}
   objectPrefab: {fileID: 1474983076072518, guid: b2cf2ce678bf40d4f957ca379cfae0e8,
     type: 2}
-  delayBetweenGenerations: 4
+  delayBetweenGenerations: 3
   distanceOfGeneration: 4
   specialPrefab: {fileID: 0}
   specialPrefabGenerationHeight: 0
   nextPrefab: {fileID: 0}
   newDistanceOfGeneration: 0
+  newDelayOfGenerations: 0
+  clouds: []
 --- !u!4 &440533151 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4465249409960908, guid: 254578d50998d0b49a602e64213467c9,
@@ -5180,7 +5182,7 @@ MonoBehaviour:
   platformsPrfs:
   - {fileID: 1885043198555012, guid: 6d1d675155a321c4cb3bd0d0e35a4ff5, type: 2}
   platformIndex: 0
-  delayBetweenGenerations: 4
+  delayBetweenGenerations: 3.5
   distanceOfGeneration: 5
 --- !u!1 &1760560136
 GameObject:
@@ -6640,6 +6642,12 @@ MonoBehaviour:
   specialPrefabGenerationHeight: 100
   nextPrefab: {fileID: 1668275086658470, guid: 4d7d9a1518ca5fe4886214bfc9408f4e, type: 2}
   newDistanceOfGeneration: 60
+  newDelayOfGenerations: 30
+  clouds:
+  - {fileID: 1249799083977476, guid: 55ab0f01d958d3547bb065a243937508, type: 2}
+  - {fileID: 1931465403353830, guid: b999110419240974c8957039f8ec8c95, type: 2}
+  - {fileID: 1456861141127814, guid: 6635f44f199d9c948aaf233512cd0eb4, type: 2}
+  - {fileID: 1571429201422642, guid: c30f78acbdb525b42bedf5e021a2d63c, type: 2}
 --- !u!1 &2079215709
 GameObject:
   m_ObjectHideFlags: 0
