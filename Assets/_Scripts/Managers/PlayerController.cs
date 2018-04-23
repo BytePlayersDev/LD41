@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private bool isAttacking;
     private bool isJumping = false;
     private bool facingRight = false;
+    private bool Isdancing = false;
 
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour {
         playerAnimation.SetFloat("speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
         playerAnimation.SetBool("isJumping", isJumping);
         playerAnimation.SetBool("isAttacking", isAttacking);
+        playerAnimation.SetBool("isDancing", Isdancing);
 
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
         //Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
@@ -199,9 +201,19 @@ public class PlayerController : MonoBehaviour {
     }
 
     /// <summary>
-    /// Flips Character Sprite.
+    /// Dance Function
     /// </summary>
-    protected void FlipSprite()
+    /// <returns></returns>
+    public bool Dance()
+    {
+        StartCoroutine(WaitDancing(1f));
+        return true;
+    }
+
+        /// <summary>
+        /// Flips Character Sprite.
+        /// </summary>
+        protected void FlipSprite()
     {
         transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y);
         transform.transform.GetChild(0).localScale = new Vector2(transform.transform.GetChild(0).transform.localScale.x * -1, transform.transform.GetChild(0).transform.localScale.y);
@@ -278,6 +290,17 @@ public class PlayerController : MonoBehaviour {
     {
         yield return new WaitForSeconds(seconds);
         isAttacking = false;
+    }
+    /// <summary>
+    /// Timer that sets a delay on dancing.
+    /// </summary>
+    /// <param name="seconds"></param>
+    /// <returns></returns>
+    IEnumerator WaitDancing(float seconds)
+    {
+        Isdancing = true;
+        yield return new WaitForSeconds(seconds);
+        Isdancing = false;
     }
 
     /// <summary>

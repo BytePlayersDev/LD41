@@ -57,6 +57,15 @@ public class GameManager : MonoBehaviour {
                     pc.Defend();
                 }
                 break;
+            case CardActionEnum.Action.Enigma:
+                {
+
+                    //Generar movimiento random
+                    //bailar
+                    pc.Dance();
+
+                }
+                break;
             default:
                 break;
         }
