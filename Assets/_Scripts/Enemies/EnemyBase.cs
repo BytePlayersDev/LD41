@@ -44,9 +44,10 @@ public class EnemyBase : MonoBehaviour {
     //Attribute variables
     protected bool isAlive;
     protected bool isAttacking;
-    
+
 
     #endregion
+
 
     #region Custom Functions
     /// <summary>
