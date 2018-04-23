@@ -1883,7 +1883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameManager: {fileID: 526280997}
-  speed: 0
+  speed: 2
   speedFactor: 1.05
   playerCheck: {fileID: 451006522}
   player: {fileID: 344735191}
@@ -3110,7 +3110,7 @@ MonoBehaviour:
   playerAnimation: {fileID: 1068158511}
   shieldAnimation: {fileID: 1967383640}
   jumpSound: {fileID: 8300000, guid: 684d15710dc1b4749933426f12005847, type: 3}
-  deathSound: {fileID: 8300000, guid: decaf90a0664eeb4980e6e67f81aa1a2, type: 3}
+  deathSound: {fileID: 8300000, guid: 7430d7a177e3aee4e89758e916e98f2b, type: 3}
   attackSound: {fileID: 8300000, guid: decaf90a0664eeb4980e6e67f81aa1a2, type: 3}
   speed: 20
   jumpForce: 520
