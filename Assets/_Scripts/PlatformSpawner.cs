@@ -24,7 +24,7 @@ public class PlatformSpawner : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
-        if (timer >= 7){
+        if (timer >= 6){
             SpawnPlatform();
             timer = 0;
         }

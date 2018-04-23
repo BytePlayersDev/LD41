@@ -22,7 +22,7 @@ public class TowerGenerator : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
-        if (timer >= 7)
+        if (timer >= 6)
         {
             SpawnTower();
             timer = 0;
