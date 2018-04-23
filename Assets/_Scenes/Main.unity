@@ -716,7 +716,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!1 &178452245
 GameObject:
   m_ObjectHideFlags: 0
@@ -861,7 +861,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!1 &204022578
 GameObject:
   m_ObjectHideFlags: 0
@@ -4645,7 +4645,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!4 &1281460108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4005138409646692, guid: b2cf2ce678bf40d4f957ca379cfae0e8,
@@ -6444,15 +6444,15 @@ MonoBehaviour:
   tileGrid: {fileID: 410024015}
   lastPlatform: {fileID: 315328981}
   platformsPrfs:
-  - {fileID: 1000630096718962, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
+  - {fileID: 1605697489262836, guid: a54312fd19c91a54db71ee9b5bf9ce1a, type: 2}
   - {fileID: 1535669496202276, guid: 30198ce96e02d4e48b3668f16fd8591c, type: 2}
-  - {fileID: 1645940920206420, guid: 5e614daf50927394baea54165935773d, type: 2}
+  - {fileID: 1213210077278364, guid: 5e614daf50927394baea54165935773d, type: 2}
   - {fileID: 1141165426826584, guid: 4fa76f130fc9ff74bb4d0ac3f40c70f5, type: 2}
-  - {fileID: 1839803555693730, guid: a2c8f5b28cde6a74086abc36f8fe6539, type: 2}
+  - {fileID: 1696426257061892, guid: a2c8f5b28cde6a74086abc36f8fe6539, type: 2}
   - {fileID: 1340687543331424, guid: 5f11cd49312f9864d83387deea513b54, type: 2}
-  - {fileID: 1096826223025510, guid: 484d38f7e80335b49883abfd768ecbb7, type: 2}
+  - {fileID: 1746703081824000, guid: 484d38f7e80335b49883abfd768ecbb7, type: 2}
   - {fileID: 1828907701951716, guid: 4d6414c3395a12d4ba36962e6f915847, type: 2}
-  - {fileID: 1081671656669986, guid: 4216c99bb78f3fe49902cb209a1789d1, type: 2}
+  - {fileID: 1389629078791346, guid: 4216c99bb78f3fe49902cb209a1789d1, type: 2}
   - {fileID: 1534621087749116, guid: a9d62061fa0d2104b995a470a40ef17e, type: 2}
   - {fileID: 1177371805570632, guid: 99b9f6d4e54ca0546b05198ec9796bd5, type: 2}
   - {fileID: 1611101686910570, guid: 80f7764176f273f43adc3aaf1a1b912a, type: 2}
@@ -7555,7 +7555,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!1 &1881336079
 GameObject:
   m_ObjectHideFlags: 0
