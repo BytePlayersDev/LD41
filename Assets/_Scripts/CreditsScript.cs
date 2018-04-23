@@ -10,6 +10,14 @@ public class CreditsScript : MonoBehaviour {
         StartCoroutine(WaitCredits());
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
     IEnumerator WaitCredits()
     {
         yield return new WaitForSeconds(40);
