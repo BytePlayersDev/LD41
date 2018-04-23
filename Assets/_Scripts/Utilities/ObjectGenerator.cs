@@ -31,14 +31,24 @@ public class ObjectGenerator : MonoBehaviour {
 	}
 
     // Update is called once per frame
-    void Update()
+    //void Update()
+    //{
+    //    timer += Time.deltaTime;
+    //    //FIXME: Do it every given distance.
+    //    if (timer >= delayBetweenGenerations)
+    //    {
+    //        SpawnTower();
+    //        timer = 0;
+    //    }
+    //}
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        timer += Time.deltaTime;
-        //FIXME: Do it every given distance.
-        if (timer >= delayBetweenGenerations)
+        if (collision.gameObject.tag == "TowerBG" && specialPrefab == null) {
+            SpawnTower();
+        }
+        if (collision.gameObject.tag == "BackGround" && specialPrefab != null)
         {
             SpawnTower();
-            timer = 0;
         }
     }
     void SpawnTower() {

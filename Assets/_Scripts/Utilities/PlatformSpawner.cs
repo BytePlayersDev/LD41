@@ -24,12 +24,19 @@ public class PlatformSpawner : MonoBehaviour {
     }
     private void FixedUpdate()
     {
-        timer += Time.deltaTime;
-        //FIXME: Do it every given distance.
-        if (timer >= delayBetweenGenerations)
-        {
+        //timer += Time.deltaTime;
+        ////FIXME: Do it every given distance.
+        //if (timer >= delayBetweenGenerations)
+        //{
+        //    SpawnPlatform();
+        //    timer = 0;
+        //}
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log(collision.name);
+        if (collision.gameObject.tag == "Waypoint") {
             SpawnPlatform();
-            timer = 0;
         }
     }
 
