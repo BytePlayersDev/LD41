@@ -61,9 +61,39 @@ public class GameManager : MonoBehaviour {
                 {
 
                     //Generar movimiento random
-                    //bailar
-                    pc.Dance();
-
+                    int randomnumber = Random.Range(1, 6);
+                    switch (randomnumber){
+                        case 1:
+                            {
+                                pc.MoveRight();
+                            }
+                        break;
+                        case 2:
+                            {
+                                pc.MoveLeft();
+                            }
+                            break;
+                        case 3:
+                            {
+                                pc.Jump();
+                            }
+                            break;
+                        case 4:
+                            {
+                                pc.Attack();
+                            }
+                            break;
+                        case 5:
+                            {
+                                pc.Defend();
+                            }
+                            break;
+                        case 6:
+                            {
+                                pc.Dance();
+                            }
+                            break;
+                    }
                 }
                 break;
             default:
