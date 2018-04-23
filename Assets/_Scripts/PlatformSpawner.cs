@@ -6,12 +6,12 @@ using UnityEngine;
 public class PlatformSpawner : MonoBehaviour {
 
     #region Variable
-    public GameObject[] platforms;
-    [SerializeField] private int platformIndex;
-    [SerializeField] private GameObject tileGrid;
-    [SerializeField] private Transform nextPosition;
     [SerializeField] private Queue<GameObject> platformPool;
     [SerializeField] private int maxCapacity = 3;
+    [SerializeField] private Grid tileGrid;
+    [SerializeField] private GameObject lastPlatform;
+    public GameObject[] platformsPrfs;
+    [SerializeField] private int platformIndex;
 
     float timer = 0f;
     #endregion
@@ -24,7 +24,7 @@ public class PlatformSpawner : MonoBehaviour {
     {
         timer += Time.deltaTime;
         //FIXME: Do it every given distance.
-        if (timer >= 8){
+        if (timer >= 7){
             SpawnPlatform();
             timer = 0;
         }
@@ -33,10 +33,11 @@ public class PlatformSpawner : MonoBehaviour {
 
     #region Custom Functions
     void SpawnPlatform() {
-        Vector3 pos = new Vector3(transform.position.x, transform.position.y + 8.2f, transform.position.z);
-        GameObject go = (GameObject)Instantiate(platforms[platformIndex], pos, Quaternion.identity);
+        Vector3 pos = new Vector3(lastPlatform.transform.position.x, lastPlatform.transform.position.y + 5f, lastPlatform.transform.position.z);
+        GameObject go = (GameObject)Instantiate(platformsPrfs[platformIndex], pos, Quaternion.identity);
         go.transform.SetParent(tileGrid.transform);
         platformPool.Enqueue(go);
+        lastPlatform = go;
 
         Debug.Log(platformPool.Count);
 
@@ -45,12 +46,10 @@ public class PlatformSpawner : MonoBehaviour {
             GameObject aux = platformPool.Dequeue();
             Destroy(aux);
         }
-
-        //platformPool.Push(go);
         
     }
     void RandomIndex() {
-        platformIndex = Random.Range(0, platforms.Length);
+        platformIndex = Random.Range(0, platformsPrfs.Length);
     }
 
 

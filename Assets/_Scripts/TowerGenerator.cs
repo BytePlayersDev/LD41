@@ -10,6 +10,7 @@ public class TowerGenerator : MonoBehaviour {
     [SerializeField] private Grid towerGrid;
     [SerializeField] private GameObject lastTower;
     [SerializeField] private GameObject towerPrf;
+
     private float timer = 0;
 	// Use this for initialization
 	void Start () {
