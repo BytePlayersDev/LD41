@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RockGuy : EnemyBase {
     #region Variables
     private Vector2 translation;
     [SerializeField]private Animator anim;
     private bool isPatrolling = true;
+    public GameObject ignoreOne;
+    public GameObject ignoreTwo;
+
     #endregion
 
     #region Unity Methods
     // Use this for initialization
-    void Start () {
+    void Start() {
         if (moveSpeed == 0) moveSpeed = 2;
         direction = new Vector2(transform.localScale.x, 0);
         samePosition = false;
@@ -22,7 +26,12 @@ public class RockGuy : EnemyBase {
         if (waypoints == null) Debug.LogError("Assign wayponits to " + this.gameObject.name);
 
         if (this.GetComponentInChildren<Collider2D>() == null) Debug.LogError("Add collider2D in " + this.gameObject.name);
-        //Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponentInChildren<Collider2D>());
+
+        if(ignoreOne != null)
+            Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(), ignoreOne.GetComponent<TilemapCollider2D>());// GetComponentInChildren<Collider2D>());
+        if(ignoreTwo != null)
+            Physics2D.IgnoreCollision(transform.GetComponent<Collider2D>(), ignoreTwo.GetComponent<TilemapCollider2D>());// GetComponentInChildren<Collider2D>());
+
         gm = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player");
