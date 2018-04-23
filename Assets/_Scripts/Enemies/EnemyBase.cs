@@ -100,7 +100,13 @@ public class EnemyBase : MonoBehaviour {
 
         if (collision.gameObject.tag == "PlayerBullet") {
             rb.AddForce(new Vector2(3000 * collision.gameObject.transform.localScale.x, 0));
-            //collision.gameObject.GetComponent<Collider2D>().enabled = false;
+
+            //Añadir puntuacion de ataque
+            PlayerController pc = GameObject.Find("Player").GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                pc.showAndCalculatedPlayerScore(30);
+            }
         }
 
 

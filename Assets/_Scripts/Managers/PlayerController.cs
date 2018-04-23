@@ -213,10 +213,10 @@ public class PlayerController : MonoBehaviour {
         if (collision.gameObject.tag == "Platform")
         {
             collision.gameObject.GetComponent<CompositeCollider2D>().isTrigger = false;
-            showAndCalculatedPlayerScore(200);
+            showAndCalculatedPlayerScore(20);
         }
     }
-    private void showAndCalculatedPlayerScore(int score)
+    public void showAndCalculatedPlayerScore(int score)
     {
         TextMesh TextMesh = ScorePlayer.GetComponent<TextMesh>();
         if (TextMesh != null)
@@ -263,6 +263,7 @@ public class PlayerController : MonoBehaviour {
         {
             Shield.SetActive(true);
         }
+        showAndCalculatedPlayerScore(10);
         Physics2D.IgnoreLayerCollision(2, 8, true);
         yield return new WaitForSeconds(seconds);
         isInvulnerable = false;
