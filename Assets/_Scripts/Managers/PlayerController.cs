@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour {
     public bool Jump()
     {
         isMoving = true;
-        isJumping = true;
+    
         rbPlayer.velocity = new Vector3(rbPlayer.velocity.x, 0f);
         rbPlayer.AddForce(new Vector2(0f, jumpForce));
 

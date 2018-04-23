@@ -19,6 +19,7 @@ public class GroundedPlayer : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Platform")
         {
+            if(pc.GetIsMoving())
             pc.SetIsJumping(true);
             pc.SetIsMoving(true);
         }
