@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour {
     private bool isAttacking;
     private bool isJumping = false;
     private bool facingRight = false;
-    private int shieldPercentage = 0;
 
     private int direction;
     private bool isInvulnerable = false; //Usar esta variable para ver si el personaje tiene activo el escudo.
@@ -67,7 +66,6 @@ public class PlayerController : MonoBehaviour {
         playerAnimation.SetFloat("speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
         playerAnimation.SetBool("isJumping", isJumping);
         playerAnimation.SetBool("isAttacking", isAttacking);
-        shieldAnimation.SetFloat("porcentaje", shieldPercentage);
 
         Vector3 rayOriginPosition = new Vector3(this.transform.position.x, this.transform.position.y - .5f, this.transform.position.z);
         //Debug.DrawRay(rayOriginPosition, new Vector2(Vector2.right.x * raycastHitRange, 0) , Color.red);
@@ -296,16 +294,18 @@ public class PlayerController : MonoBehaviour {
         Physics2D.IgnoreLayerCollision(2, 8, true);
         for (int i = 13; i > 0; --i)
         {
-            shieldPercentage = i;
+            shieldAnimation.SetFloat("porcentaje", i);
             yield return new WaitForSeconds(fixedShield);
+            if(i == 1)
+            {
+                isInvulnerable = false;
+                if (Shield != null)
+                {
+                    Shield.SetActive(false);
+                }
+                Physics2D.IgnoreLayerCollision(2, 8, false);
+            }
         }
-
-        isInvulnerable = false;
-        if (Shield != null)
-        {
-            Shield.SetActive(false);
-        }
-        Physics2D.IgnoreLayerCollision(2, 8, false);
     }
 
     #endregion
