@@ -35,18 +35,6 @@ public class ObjectGenerator : MonoBehaviour {
         skyZone = false;
         spaceZone = false;
 	}
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    timer += Time.deltaTime;
-    //    //FIXME: Do it every given distance.
-    //    if (timer >= delayBetweenGenerations)
-    //    {
-    //        SpawnTower();
-    //        timer = 0;
-    //    }
-    //}
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "TowerBG" && specialPrefab == null) {

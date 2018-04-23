@@ -25,16 +25,6 @@ public class PlatformSpawner : MonoBehaviour {
         platformPool = new Queue<GameObject>();
 
     }
-    private void FixedUpdate()
-    {
-        //timer += Time.deltaTime;
-        ////FIXME: Do it every given distance.
-        //if (timer >= delayBetweenGenerations)
-        //{
-        //    SpawnPlatform();
-        //    timer = 0;
-        //}
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log(collision.name);
