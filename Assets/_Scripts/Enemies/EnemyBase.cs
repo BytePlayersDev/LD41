@@ -100,7 +100,8 @@ public class EnemyBase : MonoBehaviour {
         }
 
         if (collision.gameObject.tag == "PlayerBullet") {
-            rb.AddForce(new Vector2(3000 * transform.localScale.normalized.x, 0));
+            Vector3 direction = (transform.position - collision.gameObject.transform.position).normalized;
+            rb.AddForce(new Vector2(3000 * direction.x, 0));
 
             //Añadir puntuacion de ataque
             PlayerController pc = GameObject.Find("Player").GetComponent<PlayerController>();
