@@ -235,8 +235,12 @@ public class PlayerController : MonoBehaviour {
     {
         if (collision.gameObject.tag == "Platform")
         {
+            if (collision.gameObject.GetComponent<CompositeCollider2D>().isTrigger)
+            {
+                showAndCalculatedPlayerScore(20);
+            }
             collision.gameObject.GetComponent<CompositeCollider2D>().isTrigger = false;
-            showAndCalculatedPlayerScore(20);
+          
         }
     }
 
