@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour {
 	
     public void CheckAction(CardActionEnum.Action action, CardDisplay cardActivated)
     {
-        StartCoroutine(SwitchButtonsTimer(cardActivated));
 
+        float timecard = cardActivated.Card.timer;
         switch (action)
         {
             case CardActionEnum.Action.MoveRight:
@@ -61,14 +61,19 @@ public class GameManager : MonoBehaviour {
                 {
 
                     //Generar movimiento random
-                    int randomnumber = Random.Range(1,7);
-                    
+                    int randomnumber = Random.Range(0,6);
+                    timecard = GetComponent<DeckList>().Decks[randomnumber].timer;
                     switch (randomnumber){
-                        case 1:
+                        case 0:
                             {
-                                pc.MoveRight();
+                                pc.Attack();
                             }
                         break;
+                        case 1:
+                            {
+                                pc.Defend();
+                            }
+                            break;
                         case 2:
                             {
                                 pc.MoveLeft();
@@ -76,20 +81,15 @@ public class GameManager : MonoBehaviour {
                             break;
                         case 3:
                             {
-                                pc.Jump();
+                                pc.MoveRight();
                             }
                             break;
                         case 4:
                             {
-                                pc.Attack();
+                                pc.Jump();
                             }
                             break;
                         case 5:
-                            {
-                                pc.Defend();
-                            }
-                            break;
-                        case 6:
                             {
                                 pc.Dance();
                             }
@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
-        
-        StartCoroutine(ReRollCard(cardActivated));        
+        StartCoroutine(SwitchButtonsTimer(timecard));
+        StartCoroutine(ReRollCard(cardActivated, timecard));        
     }
 
     // Activamos/Desactivamos todos los botones
@@ -140,20 +140,20 @@ public class GameManager : MonoBehaviour {
 
     #region Coroutines
 
-    public IEnumerator ReRollCard(CardDisplay cardDisplay)
+    public IEnumerator ReRollCard(CardDisplay cardDisplay, float time)
     {
         //while (pc.GetIsMoving() || pc.GetIsAttacking() || pc.GetIsJumping())
         //{
-        yield return new WaitForSeconds(cardDisplay.Card.timer);
+        yield return new WaitForSeconds(time);
         //}
 
         cardDisplay.ReRollCard();
     }
 
-    IEnumerator SwitchButtonsTimer(CardDisplay cardDisplay)
+    IEnumerator SwitchButtonsTimer(float time)
     {
         SwitchButtons(false);
-        yield return new WaitForSeconds(cardDisplay.Card.timer);
+        yield return new WaitForSeconds(time);
         SwitchButtons(true);
     }
 
