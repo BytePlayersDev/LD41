@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: d27c37af5b12de44199a36916b4d5d61
-timeCreated: 1524336645
+guid: 1303ee9dddb1c324fa226bb652c43ab8
+timeCreated: 1524448816
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Left_Arrow_0
-    21300002: Left_Arrow_1
+    21300000: Up_ArrowWhite 1_0
+    21300002: Up_ArrowWhite 1_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -60,7 +60,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -70,7 +70,27 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -83,7 +103,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Left_Arrow_0
+      name: Up_ArrowWhite 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -97,7 +117,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Left_Arrow_1
+      name: Up_ArrowWhite 1_1
       rect:
         serializedVersion: 2
         x: 24
